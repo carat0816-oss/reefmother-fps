@@ -346,6 +346,7 @@
   <div class="rule"></div>
   <div class="controls">
     <div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移動</div>
+    <div><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd> 視点</div>
     <div><kbd>Shift</kbd> 走る</div>
     <div><kbd>Space</kbd> ジャンプ</div>
     <div><kbd>左クリック</kbd> 射撃</div>
@@ -2467,7 +2468,7 @@ function toggleFullscreen() {
 addEventListener('keydown', e => {
   if (e.target.closest && e.target.closest('input, select, textarea')) return;  // 名前入力中はゲーム操作にしない
   keys[e.code] = true;
-  if (['Space', 'ArrowUp', 'ArrowDown', 'Tab'].includes(e.code)) e.preventDefault();
+  if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(e.code)) e.preventDefault();
   if (e.code === 'KeyF' && !e.repeat) toggleFullscreen();
   if (G.state === 'cutscene' && (e.code === 'Space' || e.code === 'Enter')) { Cine.skip(); return; }
   // マウス固定を解除したEscが、そのまま「再開」に化けないように少し間を空ける
@@ -2525,6 +2526,15 @@ function updateCursorAim(dt) {
   const k = lerp(1, 0.45, W.ads);
   P.yaw -= band(nx, 0.5) * 2.6 * k * G.sensMul * dt;
   P.pitch = clamp(P.pitch - band(ny, 0.55) * 1.5 * k * dt, -1.35, 1.35);
+}
+// 方向キーで視点を回す（どちらの視点操作モードでも使える）。押し始めはゆっくり、押し続けると速くなる
+const keyLook = { h: 0, v: 0 };
+function updateKeyLook(dt) {
+  const x = (keys.ArrowRight ? 1 : 0) - (keys.ArrowLeft ? 1 : 0), y = (keys.ArrowDown ? 1 : 0) - (keys.ArrowUp ? 1 : 0);
+  keyLook.h = x ? Math.min(keyLook.h + dt, 0.6) : 0; keyLook.v = y ? Math.min(keyLook.v + dt, 0.6) : 0;
+  const k = lerp(1, 0.45, W.ads) * G.sensMul;
+  P.yaw -= x * lerp(1.0, 2.6, keyLook.h / 0.6) * k * dt;
+  P.pitch = clamp(P.pitch - y * lerp(0.7, 1.5, keyLook.v / 0.6) * k * dt, -1.35, 1.35);
 }
 function aimNdc() { return [clamp(cursor.x / innerWidth * 2 - 1, -1, 1), clamp(cursor.y / innerHeight * 2 - 1, -1, 1)]; }
 // 今ねらっている方向（カーソル照準なら照準の位置、マウス固定なら画面中央）
@@ -3908,8 +3918,8 @@ $('labBtn').addEventListener('click', () => openLab());
 // ===================================================================
 function updatePlayer(dt) {
   if (G.state === 'dead') { P.dead = Math.min(1, P.dead + dt * 0.8); return; }
-  const f = (keys.KeyW || keys.ArrowUp ? 1 : 0) - (keys.KeyS || keys.ArrowDown ? 1 : 0);
-  const r = (keys.KeyD || keys.ArrowRight ? 1 : 0) - (keys.KeyA || keys.ArrowLeft ? 1 : 0);
+  const f = (keys.KeyW ? 1 : 0) - (keys.KeyS ? 1 : 0);
+  const r = (keys.KeyD ? 1 : 0) - (keys.KeyA ? 1 : 0);
   const wantSprint = (keys.ShiftLeft || keys.ShiftRight) && f > 0 && P.st > 0 && P.stLock <= 0 && W.ads < 0.3;
   const speed = (wantSprint ? 8.2 : 4.8) * lerp(1, 0.55, W.ads);
   let mx = 0, mz = 0;
@@ -4326,7 +4336,7 @@ function frame() {
   if (inGame) {
     const active = G.state === 'play';
     if (G.state === 'play' || G.state === 'dead') { updatePlayer(dt); }
-    if (G.state === 'play') { updateCursorAim(raw); if (STAGES[G.stage].analysis) AN.tick(dt); updateWeapon(dt); }
+    if (G.state === 'play') { updateCursorAim(raw); updateKeyLook(raw); if (STAGES[G.stage].analysis) AN.tick(dt); updateWeapon(dt); }
     updateEnemies(dt, t, active);
     KB.update(dt, t, active); SP.update(dt, t, active);
     updateAttackers(dt, t);
