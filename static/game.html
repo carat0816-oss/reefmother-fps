@@ -2889,7 +2889,7 @@ const STAGES = [
     },
   },
   {
-    name: '深淵の渦', en: 'THE ABYSSAL MAELSTROM', env: 'storm', props: 'storm', desc: '嵐の渦。深淵の母リーフマザー',
+    name: '深淵の渦', en: 'THE ABYSSAL MAELSTROM', env: 'storm', props: 'storm', desc: '嵐の渦。深淵の母リーフマザー', faceBow: true,
     intro: () => CINE.s3Intro(),
     init(S) { KB.reset(); kraken.visible = true; },
     begin() { },
@@ -4185,6 +4185,8 @@ function startStage(i, opts = {}) {
   const st = STAGES[i];
   setStageEnv(st.env, st.props);
   st.init(G.S);
+  // 開始時の向き：敵が甲板に乗り込んでくるステージは船の中央（後ろ）向き、ボスが前方の海にいるステージだけ前向き
+  if (st.faceBow) { P.yaw = 0; P.pitch = 0.12; } else { P.yaw = Math.PI; P.pitch = 0; }
   $('questTitle').textContent = st.analysis ? `ANALYSIS ─ ${st.name}` : `STAGE ${i + 1} ─ ${st.name}`;
   $('mapLabel').textContent = st.name;
   G.fight = 0;
