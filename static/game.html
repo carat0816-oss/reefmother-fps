@@ -193,6 +193,92 @@
   #credits p{font:500 17px/1.9 'Noto Sans JP';color:#e8dfcc}
   #credits .fin{font:900 56px 'Cinzel';letter-spacing:.3em;color:#f1dcad;margin-top:120px}
   #credBtn{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);opacity:0;transition:opacity 1s}
+  .modes{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center}
+  .btn.an{background:linear-gradient(180deg,#5fd3c1,#1f8a7b);box-shadow:0 0 0 1px #0d3a33,0 0 26px rgba(72,227,201,.25),0 6px 16px rgba(0,0,0,.6)}
+
+  /* ===== 射撃分析レポート ===== */
+  #report,#lab,#namePanel{--s1:#1fa391;--s2:#b68d34;--s3:#9a78e8;--miss:#6b6152;--bad:#d9534a;--surf:#140f0a;
+    --neg:#4f8fd8;--pos:#d8645a;--mid:#383835;
+    justify-content:flex-start;overflow-y:auto;background:rgba(3,5,7,.93);padding:28px 20px 40px;cursor:auto;user-select:text}
+  #lab{z-index:12}
+  #namePanel{justify-content:center;z-index:11}
+  input,select{user-select:text;font:500 14px 'Noto Sans JP',sans-serif;color:#efe6d2;background:#0b0907;
+    border:1px solid var(--gold-dim);border-radius:3px;padding:7px 10px}
+  select{padding:5px 8px;font-size:13px}
+  .np{width:min(460px,92vw);background:var(--surf);border:1px solid var(--gold);border-radius:4px;padding:22px 24px;text-align:left}
+  .np h3{font:900 20px 'Noto Sans JP';letter-spacing:.15em;color:#f1dcad;margin-bottom:4px}
+  .np p{font-size:12px;color:var(--muted);line-height:1.6}
+  .np input[type=text]{width:100%;margin:12px 0 8px;font-size:16px}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 10px}
+  .chip{cursor:pointer;font:500 12px 'Noto Sans JP';color:#cfc3aa;background:transparent;border:1px solid rgba(217,180,106,.3);border-radius:12px;padding:3px 10px}
+  .chip:hover{border-color:var(--gold)} .chip.on{background:rgba(217,180,106,.18);border-color:var(--gold);color:#f6ead0}
+  .chip i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:0}
+  .chk{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:#cfc3aa;margin:8px 0 4px;cursor:pointer}
+  .chk input{margin-top:3px}
+  .np .btns{margin-top:16px;justify-content:flex-end}
+  .tabs{display:flex;gap:4px;flex-wrap:wrap;margin:14px 0 10px;border-bottom:1px solid rgba(217,180,106,.25)}
+  .tab{cursor:pointer;font:700 13px 'Noto Sans JP';letter-spacing:.08em;color:var(--muted);background:none;border:none;padding:8px 14px;border-bottom:2px solid transparent;margin-bottom:-1px}
+  .tab.on{color:#f6ead0;border-bottom-color:var(--gold)}
+  .fbar{display:flex;gap:10px 16px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--muted)}
+  .note2{font-size:12px;color:#cfc3aa;line-height:1.7;background:rgba(217,180,106,.06);border-left:2px solid var(--gold-dim);padding:8px 12px;margin:8px 0}
+  .warn2{border-left-color:var(--bad)}
+  .hm td,.hm th{padding:0;border:2px solid var(--surf)}
+  .hm th{font-weight:500;color:var(--muted);font-size:11.5px;padding:4px 8px;white-space:nowrap}
+  .hm th.r{text-align:right}
+  .hm td{width:74px;height:32px;text-align:center;font:700 12.5px 'Cinzel','Noto Sans JP';color:#f6ead0;cursor:pointer;border-radius:4px}
+  .hm td:hover{outline:2px solid var(--gold)}
+  .tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+  .tbl th{font-weight:500;color:var(--muted);text-align:right;padding:5px 8px;border-bottom:1px solid rgba(217,180,106,.25);white-space:nowrap}
+  .tbl td{text-align:right;padding:5px 8px;border-bottom:1px solid rgba(217,180,106,.08);white-space:nowrap}
+  .tbl th:first-child,.tbl td:first-child,.tbl .l{text-align:left}
+  .sbox{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-top:8px}
+  .sbox div{background:rgba(255,255,255,.03);border-radius:3px;padding:6px 9px;font-size:11.5px;color:var(--muted)}
+  .sbox b{display:block;font:700 16px 'Cinzel','Noto Sans JP';color:#f6ead0}
+  .score-hero{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:14px;background:var(--surf);border:1px solid var(--gold);border-radius:4px;padding:12px 16px}
+  .score-hero .big{font:900 46px/1 'Cinzel';color:#ffcf6a}
+  .score-hero .big small{font-size:14px;color:var(--muted);margin-left:6px}
+  .score-hero .parts{flex:1;min-width:260px;max-width:560px}
+  .score-hero svg{display:block;width:100%;height:auto}
+  .score-hero svg text{fill:#a79c86;font:500 12px 'Noto Sans JP',sans-serif}
+  .btn.sm{font-size:12px;padding:8px 14px 8px 18px;letter-spacing:.15em}
+  .btn.danger{color:#e8877c;box-shadow:0 0 0 1px rgba(217,83,74,.5)}
+  .rp{width:100%;max-width:1100px;text-align:left}
+  .rp-head{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--gold-dim);padding-bottom:12px}
+  .rp-head h2{font:900 clamp(24px,3.4vw,34px) 'Noto Sans JP';letter-spacing:.2em;color:#f1dcad}
+  .rp-head .en{font:700 12px 'Cinzel';letter-spacing:.4em;color:var(--gold)}
+  .rp-head .res{font:700 14px 'Noto Sans JP';letter-spacing:.2em;color:var(--s1)} .rp-head .res.lose{color:var(--bad)}
+  .rp-head .rk{margin-left:auto;text-align:center} .rp-head .rk b{display:block;font:900 52px/1 'Cinzel';color:#ffcf6a;text-shadow:0 0 20px rgba(255,160,60,.5)}
+  .rp-head .rk small{font-size:11px;color:var(--muted);letter-spacing:.2em}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:16px 0}
+  .kpi{background:var(--surf);border:1px solid rgba(217,180,106,.22);border-radius:4px;padding:10px 12px}
+  .kpi .l{font-size:11.5px;color:var(--muted);letter-spacing:.06em}
+  .kpi .v{font:700 26px/1.25 'Cinzel','Noto Sans JP';color:#f6ead0;margin-top:2px}
+  .kpi .v small{font-size:13px;color:var(--muted);margin-left:3px}
+  .kpi .d{font-size:11px;color:var(--muted);margin-top:2px;min-height:15px}
+  .kpi .d .up{color:#7fd6a8} .kpi .d .dn{color:#e8877c}
+  .kpi.hero{border-color:var(--gold)}
+  .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .card{background:var(--surf);border:1px solid rgba(217,180,106,.22);border-radius:4px;padding:12px 14px;min-width:0}
+  .card.wide{grid-column:1/-1}
+  .card h4{font:700 13px 'Noto Sans JP';letter-spacing:.12em;color:var(--gold);margin-bottom:2px}
+  .card .cap{font-size:11.5px;color:var(--muted);margin-bottom:8px}
+  .card svg{display:block;width:100%;height:auto;overflow:visible}
+  .card svg text{fill:#a79c86;font:500 11px 'Noto Sans JP',sans-serif}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:#cfc3aa;margin-bottom:6px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+  .hb{display:grid;grid-template-columns:92px 1fr 88px;align-items:center;gap:8px;margin:7px 0;font-size:12.5px}
+  .hb .tr{height:12px;background:rgba(255,255,255,.04);border-radius:0 4px 4px 0}
+  .hb .tr i{display:block;height:100%;border-radius:0 4px 4px 0;min-width:2px}
+  .hb span:last-child{text-align:right;font-family:'Cinzel','Noto Sans JP';color:#efe6d2}
+  .hb span:last-child small{color:var(--muted);font-size:11px;margin-left:4px}
+  .etab{width:100%;border-collapse:collapse;font-size:12.5px}
+  .etab th{font-weight:500;color:var(--muted);text-align:right;padding:5px 8px;border-bottom:1px solid rgba(217,180,106,.25)}
+  .etab td{text-align:right;padding:6px 8px;border-bottom:1px solid rgba(217,180,106,.08);font-family:'Cinzel','Noto Sans JP'}
+  .etab th:first-child,.etab td:first-child{text-align:left}
+  .tblwrap{overflow-x:auto}
+  #tip{position:fixed;z-index:30;pointer-events:none;background:#0b0907;border:1px solid var(--gold-dim);border-radius:3px;
+    padding:6px 9px;font-size:12px;line-height:1.5;color:#efe6d2;white-space:pre;opacity:0;transition:opacity .08s;box-shadow:0 4px 14px rgba(0,0,0,.6)}
+  @media (max-width:760px){ .cards{grid-template-columns:1fr} }
   @media (max-width:760px){
     #quest{display:none} #mapWrap,.map-label{transform:scale(.7);transform-origin:top right}
     #player{width:230px} #weapon{width:210px} .controls{grid-template-columns:repeat(2,auto)} .stage{width:150px}
@@ -269,7 +355,12 @@
     <div><kbd>E</kbd> 補給箱</div>
     <div><kbd>Esc</kbd> 一時停止</div>
   </div>
-  <button class="btn" id="startBtn">航海を始める</button>
+  <div class="modes">
+    <button class="btn" id="startBtn">航海を始める</button>
+    <button class="btn an" id="anBtn">射撃分析モード</button>
+    <button class="btn ghost" id="labBtn">データラボ</button>
+  </div>
+  <p class="note" style="margin-top:8px">射撃分析モード：ボスなし・30秒。終了後に命中率・ヘッドショット率などの分析レポートが見られます。</p>
   <div class="stages" id="stageList"></div>
   <div class="opts">
     <button class="btn ghost aimBtn">視点操作：マウス固定</button>
@@ -300,6 +391,20 @@
   <div class="stats" id="endStats"></div>
   <div class="btns" id="endBtns"></div>
 </div>
+
+<div id="report" class="screen hidden"><div class="rp" id="rpBody"></div></div>
+<div id="namePanel" class="screen hidden">
+  <div class="np">
+    <h3>射撃分析モード</h3>
+    <p>ボスなし・30秒。記録はプレイヤー名ごとにこのブラウザに保存され、データラボで比較できます。</p>
+    <input type="text" id="npName" maxlength="16" placeholder="プレイヤー名（ニックネーム）" autocomplete="off">
+    <div class="chips" id="npChips"></div>
+    <label class="chk hidden" id="npConsentRow"><input type="checkbox" id="npConsent"><span>データ提供に同意する<br><small style="color:var(--muted)">ニックネームと、この回の操作・成績のデータ（照準の動き・命中など）を分析のために集め、データラボの「みんなのデータ」として他の人にも表示します。本名など個人が分かる名前は入れないでください。同意しなくても遊べます（その場合、記録はこのブラウザにだけ残ります）。</small></span></label>
+    <div class="btns"><button class="btn ghost sm" id="npCancel">戻る</button><button class="btn an" id="npGo">開始</button></div>
+  </div>
+</div>
+<div id="lab" class="screen hidden"><div class="rp" id="labBody"></div></div>
+<div id="tip"></div>
 
 <div id="credits" class="screen hidden">
   <div class="roll" id="roll">
@@ -1216,6 +1321,7 @@ const G = {
   state: 'title', time: 0, fight: 0, shake: 0, flash: 0, flashSeq: [], inkT: 0, ampMul: 1, timeScale: 1,
   nextLightning: 4, stage: -1, S: {}, boss: null, invuln: false, envLerp: null, shadow: null,
   stats: {},
+  player: '', consent: false, sensMul: 1,  // 射撃分析：プレイヤー名・データ提供への同意・視点感度の倍率
 };
 const P = { x: 0.8, z: -9.5, y: 0, vx: 0, vz: 0, vy: 0, yaw: 0, pitch: 0.12, hp: 100, st: 100, lastHurt: -99, grounded: true, bob: 0, stLock: 0, dead: 0 };
 const W = { mag: 3, res: 15, reload: 0, cd: 0, ads: 0, spCd: 0, armed: false, kick: 0, swayX: 0, swayY: 0, pull: 1 };
@@ -1225,6 +1331,84 @@ let realClock = 0;
 function realAfter(sec, fn) { realTimers.push({ t: realClock + sec, fn }); }
 function resetStats() { G.stats = { shots: 0, hits: 0, crits: 0, kills: 0, jellies: 0, severed: 0, eyes: 0 }; }
 resetStats();
+
+// ===================================================================
+// 射撃分析：1発ごと・敵1体ごとのログ（どのモードでも記録し、分析モードでだけレポートを出す）
+// ===================================================================
+const _anV1 = V(), _anV2 = V(), _anV3 = V(), _anV4 = V();
+const R2D = 180 / Math.PI;
+const SETTLE_DPS = 25;   // 照準の角速度がこれ（度/秒）未満なら「止まっている」とみなす
+const PRE_WIN = 0.5;     // 「撃つ前」の窓（秒）
+const AN = {
+  seq: 0, shots: [], hurts: [], foes: [], reloads: 0, supplies: 0, cur: null,
+  // 毎フレームの記録：[時刻, 照準の回転角(度), マウス移動(px), 切り返し(0/1), 構え(0/1), 歩いた距離(m), 最寄りの敵とのずれ(度|null), 最寄りの敵までの距離(m|null)]
+  frames: [], mouse: 0, prevDir: V(), prevMove: V(), hasPrev: false,
+  reset() {
+    this.shots = []; this.hurts = []; this.foes = []; this.reloads = 0; this.supplies = 0; this.cur = null;
+    this.frames = []; this.mouse = 0; this.hasPrev = false; this.prevMove.set(0, 0, 0);
+  },
+  born(e) { e.aid = ++this.seq; this.foes.push({ id: e.aid, kind: e.kind, elite: !!e.elite, born: G.fight, firstHit: null, died: null, headshot: false, self: false, dealt: 0, taken: 0 }); },
+  rec(e) { return e && this.foes.find(r => r.id === e.aid); },
+  // 照準に一番近い敵 → { e, ang(ラジアン), dist }
+  nearestToAim(dir) {
+    const cp = camera.getWorldPosition(_anV1);
+    let best = null;
+    for (const e of enemies) {
+      if (e.dead || e.boss) continue;
+      const p = e.kind === 'jelly' ? e.wp : e.bodyW;
+      _anV2.subVectors(p, cp); const d = _anV2.length(); if (d < 0.01) continue;
+      const a = Math.acos(clamp(_anV2.dot(dir) / d, -1, 1));
+      if (!best || a < best.ang) best = { e, ang: a, dist: d };
+    }
+    return best;
+  },
+  tick(dt) {
+    if (dt <= 0) return;
+    const d = aimDir(_anV3);
+    let ang = 0, rev = 0;
+    if (this.hasPrev) {
+      ang = Math.acos(clamp(d.dot(this.prevDir), -1, 1)) * R2D;
+      if (ang / dt > 2) {  // ほぼ止まっている時の微小なぶれは切り返しに数えない
+        const mv = _anV4.subVectors(d, this.prevDir);
+        if (this.prevMove.lengthSq() > 0 && mv.dot(this.prevMove) < 0) rev = 1;
+        this.prevMove.copy(mv);
+      }
+    }
+    this.prevDir.copy(d); this.hasPrev = true;
+    const nb = this.nearestToAim(d);
+    this.frames.push([G.fight, ang, this.mouse, rev, W.ads > 0.6 ? 1 : 0, Math.hypot(P.vx, P.vz) * dt, nb ? nb.ang * R2D : null, nb ? nb.dist : null, dt]);
+    this.mouse = 0;
+  },
+  // 撃つ前 PRE_WIN 秒の照準の動きと、照準が止まっていた時間
+  preShot(t) {
+    let pre = 0, mouse = 0, rev = 0, settle = 0, still = true;
+    for (let i = this.frames.length - 1; i >= 0; i--) {
+      const f = this.frames[i], age = t - f[0];
+      if (age <= PRE_WIN) { pre += f[1]; mouse += f[2]; rev += f[3]; }
+      if (still && f[1] / f[8] < SETTLE_DPS && settle < 2) settle += f[8]; else still = false;
+      if (age > PRE_WIN && !still) break;
+    }
+    return { pre, mouse, rev, settle: Math.min(2, settle) };
+  },
+  // 撃った瞬間：照準に一番近い敵を「狙っていた敵」とみなし、距離と照準のずれ（度）を残す
+  shot(dir, explosive) {
+    const nb = this.nearestToAim(dir), r = nb && this.rec(nb.e);
+    const last = this.shots[this.shots.length - 1];
+    const s = {
+      i: this.shots.length + 1, t: G.fight, ads: W.ads > 0.6, moving: Math.hypot(P.vx, P.vz) > 1.2, explosive,
+      tgt: nb ? nb.e.kind : null, dist: nb ? nb.dist : null, err: nb ? nb.ang * R2D : null, hits: [],
+      ...this.preShot(G.fight), gap: last ? G.fight - last.t : null, since: r ? G.fight - r.born : null,
+    };
+    this.shots.push(s); return s;
+  },
+  hit(e, part, crit, dealt, kill, p) {
+    if (this.cur) this.cur.hits.push({ kind: e.kind, part, crit: !!crit, dealt, kill, dist: camera.position.distanceTo(p) });
+    const r = this.rec(e); if (r) { r.dealt += dealt; if (r.firstHit == null) r.firstHit = G.fight; }
+  },
+  kill(e, headshot) { const r = this.rec(e); if (r && r.died == null) { r.died = G.fight; r.headshot = !!headshot; } },
+  selfDestruct(e) { const r = this.rec(e); if (r) r.self = true; },
+  hurt(n, e) { this.hurts.push({ t: G.fight, n, kind: e ? e.kind : 'other' }); const r = this.rec(e); if (r) r.taken += n; },
+};
 
 // ===================================================================
 // UI
@@ -1503,6 +1687,7 @@ class Drowned {
     this.headW = V(); this.bodyW = V(); this.legW = V();
     this.dead = false; this.gone = false; this.headless = false; this.vx = 0; this.vz = 0;
     this.climbT = elite ? 2.4 : 1.8;
+    AN.born(this);
     splash(ship.localToWorld(V(this.x, -0.5, this.z)), 26, 0.8);
     Sfx.splash(0.25); if (Math.random() < 0.6) after(0.3, () => Sfx.groan(elite));
     enemies.push(this);
@@ -1565,10 +1750,10 @@ class Drowned {
             const [sx, sz] = this.slamAt, d2 = Math.hypot(P.x - sx, P.z - sz);
             const wp = ship.localToWorld(V(sx, 0.1, sz));
             splash(wp, 40, 1); sparks(wp, 20, [2, 1.5, 1], 6); Sfx.slam(); G.shake = Math.max(G.shake, d2 < 6 ? 0.9 : 0.4);
-            if (d2 < 2.3) { hurt(26, this.headW); P.vx += (P.x - sx) / (d2 || 1) * 8; P.vz += (P.z - sz) / (d2 || 1) * 8; P.vy = 3.5; P.grounded = false; }
+            if (d2 < 2.3) { hurt(26, this.headW, this); P.vx += (P.x - sx) / (d2 || 1) * 8; P.vz += (P.z - sz) / (d2 || 1) * 8; P.vy = 3.5; P.grounded = false; }
           } else if (dist < 1.9) {
             const fx = Math.sin(this.yaw), fz = Math.cos(this.yaw);
-            if ((dx * fx + dz * fz) / (dist || 1) > 0.3) hurt(12, this.headW);
+            if ((dx * fx + dz * fz) / (dist || 1) > 0.3) hurt(12, this.headW, this);
           }
           this.state = 'recover'; this.t = 0;
         }
@@ -1630,7 +1815,7 @@ class Drowned {
   }
   die(headshot) {
     this.dead = true; this.state = 'dying'; this.t = 0; this.headshot = headshot;
-    G.stats.kills++;
+    G.stats.kills++; AN.kill(this, headshot);
     if (headshot) { this.rig.skull.visible = false; this.headless = true; inkBurst(this.headW, 30, 0.8); sparks(this.headW, 14, [0.4, 2.2, 1.8], 5); }
     Sfx.groan(this.elite);
     if (this.elite && G.boss && G.boss.e === this) onBossDefeated();
@@ -1714,6 +1899,7 @@ class Jelly {
     this.state = 'rise'; this.t = 0; this.hoverY = rand(3, 5.5); this.startY = pos.y; this.pulse = Math.random() * 6;
     this.vel = V(); this.dead = false; this.gone = false; this.wp = V(); this.hp = 1; this.maxHp = 1; this.scale = 0.3;
     splash(V(pos.x, 0.2, pos.z), 20, 0.8);
+    AN.born(this);
     enemies.push(this);
   }
   update(dt, t, active) {
@@ -1764,14 +1950,14 @@ class Jelly {
   hit(p) { if (this.dead || this.state === 'rise' && this.t < 0.4) return null; return p.distanceTo(this.wp) < 1.05 * this.scale ? { part: 'body', dmg: 999 } : null; }
   damage() { if (!this.dead) this.pop(); }
   pop() {
-    this.dead = true; this.state = 'pop'; this.t = 0; G.stats.kills++; G.stats.jellies++;
+    this.dead = true; this.state = 'pop'; this.t = 0; G.stats.kills++; G.stats.jellies++; AN.kill(this, false);
     glowBurst(this.wp, this.col, 60, 6, 0.35); Sfx.jellyPop();
   }
   explode() {
-    this.dead = true;
+    this.dead = true; AN.selfDestruct(this);
     glowBurst(this.wp, this.col, 90, 9, 0.5); boomLight.position.copy(this.wp); boomLight.intensity = 200; boomLight.color.copy(this.col);
     Sfx.boom();
-    if (this.wp.distanceTo(camera.position) < 3.2) { hurt(18, this.wp); G.shake = Math.max(G.shake, 0.6); }
+    if (this.wp.distanceTo(camera.position) < 3.2) { hurt(18, this.wp, this); G.shake = Math.max(G.shake, 0.6); }
     this.remove();
   }
   mapPos(out) { return out.copy(this.g.position); }
@@ -2279,6 +2465,7 @@ function toggleFullscreen() {
   } catch (e) {}
 }
 addEventListener('keydown', e => {
+  if (e.target.closest && e.target.closest('input, select, textarea')) return;  // 名前入力中はゲーム操作にしない
   keys[e.code] = true;
   if (['Space', 'ArrowUp', 'ArrowDown', 'Tab'].includes(e.code)) e.preventDefault();
   if (e.code === 'KeyF' && !e.repeat) toggleFullscreen();
@@ -2305,9 +2492,10 @@ canvas.addEventListener('mousedown', e => {
 addEventListener('mouseup', e => { if (e.button === 0) fireHeld = false; if (e.button === 2) adsHeld = false; });
 addEventListener('contextmenu', e => e.preventDefault());
 addEventListener('mousemove', e => {
+  if (G.state === 'play') AN.mouse += locked() ? Math.hypot(e.movementX, e.movementY) : Math.hypot(e.clientX - cursor.x, e.clientY - cursor.y);
   cursor.x = e.clientX; cursor.y = e.clientY; cursor.inside = true;
   if (G.state !== 'play' || !locked()) return;
-  const sens = lerp(0.0021, 0.0011, W.ads);
+  const sens = lerp(0.0021, 0.0011, W.ads) * G.sensMul;
   P.yaw -= e.movementX * sens; P.pitch -= e.movementY * sens;
   P.pitch = clamp(P.pitch, -1.35, 1.35);
   W.swayX = clamp(W.swayX + e.movementX * 0.0004, -0.04, 0.04);
@@ -2335,15 +2523,21 @@ function updateCursorAim(dt) {
   const nx = cursor.x / innerWidth * 2 - 1, ny = cursor.y / innerHeight * 2 - 1;
   const band = (v, dz) => { const a = Math.abs(v); return a < dz ? 0 : Math.sign(v) * Math.pow(Math.min(1, (a - dz) / (1 - dz)), 1.5); };
   const k = lerp(1, 0.45, W.ads);
-  P.yaw -= band(nx, 0.5) * 2.6 * k * dt;
+  P.yaw -= band(nx, 0.5) * 2.6 * k * G.sensMul * dt;
   P.pitch = clamp(P.pitch - band(ny, 0.55) * 1.5 * k * dt, -1.35, 1.35);
 }
 function aimNdc() { return [clamp(cursor.x / innerWidth * 2 - 1, -1, 1), clamp(cursor.y / innerHeight * 2 - 1, -1, 1)]; }
+// 今ねらっている方向（カーソル照準なら照準の位置、マウス固定なら画面中央）
+const _adV = V();
+function aimDir(out) {
+  if (cursorMode()) { const [nx, ny] = aimNdc(); return out.set(nx, -ny, 0.5).unproject(camera).sub(camera.getWorldPosition(_adV)).normalize(); }
+  return camera.getWorldDirection(out);
+}
 
 // ===================================================================
 // 戦闘ロジック
 // ===================================================================
-function startReload() { if (W.reload > 0 || W.mag >= 3 || W.res <= 0) return; W.reload = 1.3; Sfx.reload(); }
+function startReload() { if (W.reload > 0 || W.mag >= 3 || W.res <= 0) return; W.reload = 1.3; AN.reloads++; Sfx.reload(); }
 function armSpecial() { if (W.spCd > 0 || W.armed) return; W.armed = true; Sfx.click(); Sfx.tone('sawtooth', 300, 900, 0.25, 0.06); }
 function nearestSupply() {
   let best = null, bd = 1.9;
@@ -2354,7 +2548,7 @@ function interact() {
   const s = nearestSupply();
   if (!s || s.cd > 0) return;
   if (W.res >= 24 && W.mag >= 3) { announce('矢筒は満杯', 'QUIVER FULL', 1.2); return; }
-  W.res = 24; s.cd = 14; Sfx.pickup();
+  W.res = 24; s.cd = 14; AN.supplies++; Sfx.pickup();
   if (W.mag === 0) startReload();
 }
 function fire() {
@@ -2362,17 +2556,17 @@ function fire() {
   if (W.mag <= 0) { if (W.res > 0) startReload(); else Sfx.click(); W.cd = 0.3; return true; }
   W.mag--; W.cd = 0.4; W.kick = 1; W.pull = 0;
   G.stats.shots++;
-  let dir;
-  if (cursorMode()) { const [nx, ny] = aimNdc(); dir = V(nx, -ny, 0.5).unproject(camera).sub(camera.getWorldPosition(V())).normalize(); }
-  else dir = camera.getWorldDirection(V());
+  const dir = aimDir(V());
   const spread = lerp(0.012 + Math.hypot(P.vx, P.vz) * 0.003, 0.0, W.ads);
   dir.x += rand(-spread, spread); dir.y += rand(-spread, spread); dir.z += rand(-spread, spread); dir.normalize();
+  const shot = AN.shot(dir, W.armed);
   const pos = camera.getWorldPosition(V()).addScaledVector(dir, 0.6);
   const explosive = W.armed;
   const mesh = new THREE.Group();
   mesh.add(new THREE.Mesh(flyBoltGeo, flyMat), new THREE.Mesh(flyTipGeo, explosive ? flyTipHot : flyTipMat));
   mesh.position.copy(pos); scene.add(mesh);
-  bolts.push({ mesh, pos, prev: pos.clone(), vel: dir.multiplyScalar(110), life: 0, explosive });
+  // 見た目の矢は 0.6m 先から出すが、当たり判定は目の位置から取る（至近距離の敵を素通りしないように）
+  bolts.push({ mesh, pos, prev: pos.clone(), from: camera.getWorldPosition(V()), vel: dir.multiplyScalar(110), life: 0, explosive, shot });
   if (explosive) { W.armed = false; W.spCd = 16; }
   Sfx.shoot();
   G.shake = Math.max(G.shake, 0.12);
@@ -2380,8 +2574,9 @@ function fire() {
   if (W.mag === 0 && W.res > 0) after(0.35, startReload);
   return true;
 }
-function hurt(n, src) {
+function hurt(n, src, foe) {
   if (G.state !== 'play' || G.invuln || G.god) return;
+  AN.hurt(Math.min(n, P.hp), foe);
   P.hp -= n; P.lastHurt = G.time; Sfx.hurt();
   G.shake = Math.max(G.shake, 0.5);
   if (src) {
@@ -2402,8 +2597,9 @@ function damageBoss(n, pos, crit, silent) {
 function hitEnemy(e, r, p) {
   G.stats.hits++;
   if (r.crit) G.stats.crits++;
-  const wasDead = e.dead;
+  const wasDead = e.dead, hpBefore = e.hp;
   e.damage(r.dmg, r.crit, r.part);
+  AN.hit(e, e.kind === 'jelly' ? 'jelly' : r.part, r.crit, Math.max(0, Math.min(r.dmg, hpBefore)), !wasDead && e.dead, p);
   if (e.kind === 'jelly') { hitMarker(false, true); showDmg(p, 0, 'small', '撃破'); return; }
   showDmg(p, Math.min(r.dmg, 999), r.crit ? 'crit' : '');
   inkBurst(p, r.crit ? 22 : 12, 0.7); if (r.crit) sparks(p, 16, [0.4, 2.2, 1.8], 5);
@@ -2433,7 +2629,7 @@ function explode(p) {
   for (const e of enemies) {
     if (e.dead) continue;
     const ep = e.kind === 'jelly' ? e.wp : e.bodyW;
-    if (ep.distanceTo(p) < (e.kind === 'jelly' ? 6 : 4.5)) { G.stats.hits++; e.damage(e.elite ? 260 : 999, false, 'body'); showDmg(ep, e.elite ? 260 : 250, ''); }
+    if (ep.distanceTo(p) < (e.kind === 'jelly' ? 6 : 4.5)) { G.stats.hits++; const hb = e.hp; e.damage(e.elite ? 260 : 999, false, 'body'); AN.hit(e, 'blast', false, Math.max(0, Math.min(e.elite ? 260 : 999, hb)), e.dead, ep); showDmg(ep, e.elite ? 260 : 250, ''); }
   }
   if (G.boss && G.boss.explode) G.boss.explode(p);
 }
@@ -2451,7 +2647,8 @@ function testHit(p) {
 function updateBolts(dt) {
   for (let i = bolts.length - 1; i >= 0; i--) {
     const b = bolts[i];
-    b.prev.copy(b.pos);
+    AN.cur = b.shot;
+    if (b.from) { b.prev.copy(b.from); b.from = null; } else b.prev.copy(b.pos);
     b.vel.y -= 2.5 * dt;
     b.pos.addScaledVector(b.vel, dt);
     b.life += dt;
@@ -2459,7 +2656,7 @@ function updateBolts(dt) {
     b.mesh.lookAt(_v1.copy(b.pos).add(b.vel));
     if (b.explosive) glowFx.spawn(b.pos.x, b.pos.y, b.pos.z, 0, 0.5, 0, 0.4, 0.22, 3, 1.2, 0.3, 0, 1);
     else if (Math.random() < 0.6) glowFx.spawn(b.pos.x, b.pos.y, b.pos.z, 0, 0, 0, 0.18, 0.05, 0.6, 0.65, 0.7, 0, 1);
-    const seg = b.pos.distanceTo(b.prev), steps = Math.max(1, Math.ceil(seg / 0.4));
+    const seg = b.pos.distanceTo(b.prev), steps = Math.max(1, Math.ceil(seg / 0.1));  // 頭の判定（直径約0.4m）を飛び越さない細かさで調べる
     let res = null; const hp = _v4;
     for (let s = 1; s <= steps && !res; s++) { hp.lerpVectors(b.prev, b.pos, s / steps); res = testHit(hp); }
     if (!res && b.life < 4) continue;
@@ -2475,6 +2672,7 @@ function updateBolts(dt) {
     }
     bolts.splice(i, 1);
   }
+  AN.cur = null;
   for (let i = stuck.length - 1; i >= 0; i--) { stuck[i].t -= dt; if (stuck[i].t <= 0) { ship.remove(stuck[i].mesh); stuck.splice(i, 1); } }
 }
 function clearBolts() { for (const b of bolts) scene.remove(b.mesh); bolts.length = 0; for (const s of stuck) ship.remove(s.mesh); stuck.length = 0; }
@@ -2697,7 +2895,1013 @@ const STAGES = [
       ];
     },
   },
+  {
+    // 射撃分析モード：ボスなし・30秒のタイムアタック。時間切れ（または倒れる）でレポートへ
+    name: '射撃分析', en: 'ANALYSIS ROUND', env: 'cove', props: 'cove', desc: 'ボスなし・30秒', analysis: true,
+    intro: () => null,
+    init(S) { Object.assign(S, { spawnT: 0, finished: false, warned: false }); },
+    begin(S) { W.res = 24; S.spawnT = G.time + 0.3; announce('射撃分析 開始', `ANALYSIS ROUND ─ ${AN_ROUND} SECONDS`, 1.8); Sfx.setDrone(0.4); },
+    update(S, dt, t) {
+      W.res = 24;  // 分析モードは矢筒無制限（弾切れで測定がぶれないように）。装填は通常どおり必要
+      if (S.finished) return;
+      if (t > S.spawnT && aliveCount() < 4) {
+        if (Math.random() < 0.25 && aliveCount('jelly') < 2) spawnJelly(); else spawnDrowned();
+        S.spawnT = t + (G.fight < 1 ? 0.4 : rand(0.7, 1.4));
+      }
+      if (!S.warned && G.fight > AN_ROUND - 10) { S.warned = true; announce('残り10秒', '10 SECONDS LEFT', 1.2); }
+      if (G.fight >= AN_ROUND) {
+        // 時間切れ：G.state を play 以外にすると、ループが敵も矢も更新しなくなる（その場で止まる）
+        S.finished = true; G.fight = AN_ROUND; G.state = 'timeup'; fireHeld = adsHeld = false;
+        announce('タイムアップ', 'TIME UP', 1.4); Sfx.stinger();
+        realAfter(1.3, () => showReport(true));
+      }
+    },
+    quest(S) {
+      const a = anSummary();
+      return [
+        { t: '残り時間', n: `${Math.max(0, Math.ceil(AN_ROUND - G.fight))} 秒`, done: S.finished },
+        { t: '撃破数', n: `${a.kills}` },
+        { t: '命中率', n: `${pct(a.acc)}（${a.hitShots}/${a.shots}）` },
+        { t: 'ヘッドショット率', n: pct(a.hs) },
+      ];
+    },
+  },
 ];
+
+// ===================================================================
+// 射撃分析：集計とレポート
+// ===================================================================
+const ANA = 3;  // STAGES の中の分析ラウンドの番号
+const AN_ROUND = 30;  // 分析ラウンドの長さ（秒）
+const pct = v => v == null ? '─' : Math.round(v * 100) + '%';
+const fx1 = (v, u = '') => v == null ? '─' : v.toFixed(1) + u;
+const mean = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
+function anSummary() {
+  const sh = AN.shots, n = sh.length, T = Math.max(G.fight, 0.001);
+  const hitShots = sh.filter(s => s.hits.length);
+  const hits = sh.flatMap(s => s.hits);
+  const dh = hits.filter(h => h.kind === 'drowned' && h.part !== 'blast');
+  const heads = dh.filter(h => h.part === 'head').length;
+  const kills = AN.foes.filter(r => r.died != null), dk = kills.filter(r => r.kind === 'drowned');
+  let run = 0, best = 0; for (const s of sh) { if (s.hits.length) best = Math.max(best, ++run); else run = 0; }
+  const rate = arr => ({ n: arr.length, h: arr.filter(s => s.hits.length).length, acc: arr.length ? arr.filter(s => s.hits.length).length / arr.length : null });
+  const dealt = AN.foes.reduce((x, r) => x + r.dealt, 0);
+  return {
+    T, shots: n, hitShots: hitShots.length, acc: n ? hitShots.length / n : null,
+    hs: dh.length ? heads / dh.length : null, heads, dHits: dh.length,
+    hsKill: dk.length ? dk.filter(r => r.headshot).length / dk.length : null,
+    kills: kills.length, spawned: AN.foes.length, selfs: AN.foes.filter(r => r.self).length,
+    ttk: mean(kills.map(r => r.died - r.born)),
+    react: mean(AN.foes.filter(r => r.firstHit != null).map(r => r.firstHit - r.born)),
+    spk: kills.length ? n / kills.length : null,
+    dist: mean(hits.map(h => h.dist)), maxDist: hits.length ? Math.max(...hits.map(h => h.dist)) : null,
+    err: mean(sh.filter(s => !s.hits.length && s.err != null).map(s => s.err)),
+    dealt, dps: dealt / T, taken: AN.hurts.reduce((x, h) => x + h.n, 0), hurtN: AN.hurts.length,
+    best, reloads: AN.reloads, supplies: AN.supplies, spm: n / T * 60,
+    ads: rate(sh.filter(s => s.ads)), hip: rate(sh.filter(s => !s.ads)), still: rate(sh.filter(s => !s.moving)), move: rate(sh.filter(s => s.moving)),
+    bins: [[0, 5], [5, 10], [10, 15], [15, 25], [25, Infinity]].map(([a, b]) => ({ a, b, ...rate(sh.filter(s => s.dist != null && s.dist >= a && s.dist < b)) })),
+    parts: [
+      ['頭', heads, 'var(--s2)'], ['胴', hits.filter(h => h.part === 'body').length, 'var(--s1)'], ['脚', hits.filter(h => h.part === 'leg').length, 'var(--s1)'],
+      ['クラゲ', hits.filter(h => h.part === 'jelly').length, 'var(--s3)'], ['爆風', hits.filter(h => h.part === 'blast').length, 'var(--miss)'],
+    ],
+  };
+}
+// スコア：命中率×400 ＋ HS率×150 ＋ 撃破×25 − 被ダメ×2 ＋ 初撃の速さ（出現から3秒未満で当てた分。最大90）
+function anScore(a) {
+  const parts = [
+    ['命中率', (a.acc || 0) * 400],
+    ['ヘッドショット率', (a.hs || 0) * 150],
+    ['撃破', a.kills * 25],
+    ['被ダメージ', -a.taken * 2],
+    ['初撃の速さ', a.react == null ? 0 : clamp((3 - a.react) * 30, 0, 90)],
+  ].map(([l, v]) => [l, Math.round(v)]);
+  return { total: Math.max(0, parts.reduce((x, p) => x + p[1], 0)), parts };
+}
+const rankOf = s => s >= 750 ? 'S' : s >= 550 ? 'A' : s >= 380 ? 'B' : 'C';
+const tierOf = s => s == null ? '─' : s >= 650 ? '上級' : s >= 450 ? '中級' : '初級';
+const HIST_KEY = 'reef-analysis-history';
+function loadHist() { try { return JSON.parse(localStorage.getItem(HIST_KEY) || '[]'); } catch (e) { return []; } }
+function saveHist(h) { try { localStorage.setItem(HIST_KEY, JSON.stringify(h.slice(-30))); } catch (e) {} }
+
+function showReport(clear) {
+  if (G.state === 'clear' || G.state === 'lost') return;
+  G.state = clear ? 'clear' : 'lost';
+  if (document.pointerLockElement) document.exitPointerLock();
+  $('hud').classList.add('hidden'); weapon.visible = false;
+  Sfx.setDrone(0); if (clear) Sfx.fanfare();
+  const a = anSummary(), run = buildRun(a, clear), rank = rankOf(run.score);
+  LAB.add(run);
+  const sent = G.consent && BRIDGE.send(run);
+  const hist = loadHist(), prev = hist.length ? hist[hist.length - 1] : null;
+  hist.push({ at: Date.now(), clear, rank, score: run.score, acc: a.acc, hs: a.hs, ttk: a.ttk, react: a.react, T: a.T, taken: a.taken, kills: a.kills, dps: a.dps, dist: a.dist });
+  saveHist(hist);
+  $('rpBody').innerHTML = reportHTML(a, clear, rank, prev, hist, run);
+  const where = sent ? 'この回のデータを「みんなのデータ」に送りました。データラボで全員分と比べられます。'
+    : BRIDGE.on ? 'データ提供に同意していないため、この回の記録はこのブラウザにだけ保存しました。' : 'この回の記録はこのブラウザに保存しました。';
+  $('rpBody').querySelector('.rp-head').insertAdjacentHTML('afterend', `<p class="note2" style="margin-top:12px">${where}</p>`);
+  $('rpAgain').onclick = () => startStage(ANA, { skipIntro: true });
+  $('rpCsv').onclick = () => downloadCsv();
+  $('rpTitle').onclick = toTitle;
+  $('rpLab').onclick = () => openLab();
+  $('rpLab2').onclick = () => openLab({ src: 'sample' });
+  $('report').scrollTop = 0;
+  $('report').classList.remove('hidden');
+}
+
+// 前回との差。better: 大きいほど良いなら 1、小さいほど良いなら -1
+function delta(cur, old, better, fmt) {
+  if (cur == null || old == null) return '';
+  const d = cur - old; if (Math.abs(d) < 1e-9) return '前回と同じ';
+  return `前回比 <span class="${d * better > 0 ? 'up' : 'dn'}">${d > 0 ? '▲' : '▼'} ${fmt(Math.abs(d))}</span>`;
+}
+function kpi(label, val, unit, d, hero) {
+  return `<div class="kpi${hero ? ' hero' : ''}"><div class="l">${label}</div><div class="v">${val}${unit ? `<small>${unit}</small>` : ''}</div><div class="d">${d || ''}</div></div>`;
+}
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const KIND_JP = { drowned: '亡者', jelly: '燐光クラゲ', other: 'その他' };
+const PART_JP = { head: '頭', body: '胴', leg: '脚', jelly: 'クラゲ', blast: '爆風' };
+
+function reportHTML(a, clear, rank, prev, hist, run) {
+  const p = prev || {}, pp = v => Math.round(v * 100) + 'pt', ss = v => v.toFixed(1) + '秒';
+  const mine = LAB.runs.filter(r => r.player === run.player), avg = mean(mine.map(r => r.score));
+  const tm = Math.floor(a.T), mmss = `${Math.floor(tm / 60)}:${String(tm % 60).padStart(2, '0')}`;
+  const kpis = [
+    kpi('命中率', pct(a.acc), '', `${a.hitShots} / ${a.shots} 発　${delta(a.acc, p.acc, 1, pp)}`, true),
+    kpi('ヘッドショット率', pct(a.hs), '', `亡者への命中 ${a.heads}/${a.dHits}　${delta(a.hs, p.hs, 1, pp)}`, true),
+    kpi('撃破数', a.kills, '体', `出現 ${a.spawned} 体${a.selfs ? `・自爆された ${a.selfs}` : ''}　${delta(a.kills, p.kills, 1, v => v + '体')}`, true),
+    kpi('生存時間', mmss, '', clear ? `${AN_ROUND}秒 戦い抜いた` : '途中で倒れた'),
+    kpi('平均撃破時間', fx1(a.ttk), '秒', `出現→撃破　${delta(a.ttk, p.ttk, -1, ss)}`),
+    kpi('平均初撃時間', fx1(a.react), '秒', `出現→初命中　${delta(a.react, p.react, -1, ss)}`),
+    kpi('撃破あたり射撃数', fx1(a.spk), '発', '少ないほど効率的'),
+    kpi('ヘッドショット撃破率', pct(a.hsKill), '', '亡者の撃破のうち'),
+    kpi('平均交戦距離', fx1(a.dist), 'm', `最長ヒット ${fx1(a.maxDist, 'm')}`),
+    kpi('外した時の照準ずれ', fx1(a.err), '°', '最寄りの敵からの角度'),
+    kpi('DPS', fx1(a.dps), '', `与ダメージ ${Math.round(a.dealt)}`),
+    kpi('被ダメージ', Math.round(a.taken), '', `被弾 ${a.hurtN} 回　${delta(a.taken, p.taken, -1, v => Math.round(v))}`),
+    kpi('最大連続命中', a.best, '発', `毎分 ${fx1(a.spm)} 発`),
+    kpi('装填回数', a.reloads, '回', '矢筒は無制限'),
+  ].join('');
+  return `
+  <div class="rp-head">
+    <div><div class="en">ANALYSIS REPORT</div><h2>射撃分析レポート</h2>
+      <div class="res${clear ? '' : ' lose'}">${esc(run.player)}　${clear ? `TIME UP ─ ${AN_ROUND}秒 終了` : 'DEFEATED ─ 途中で倒れた'}　${new Date().toLocaleString('ja-JP')}</div></div>
+    <div class="rk"><b>${rank}</b><small>RANK</small></div>
+  </div>
+  <div class="score-hero">
+    <div><div style="font-size:11.5px;color:var(--muted);letter-spacing:.1em">SCORE ─ スコア</div><div class="big">${run.score}<small>点</small></div>
+      <div class="kpi" style="background:none;border:none;padding:4px 0 0"><div class="d">${delta(run.score, p.score, 1, v => Math.round(v) + '点')}</div></div>
+      <div style="font-size:12px;color:#cfc3aa;margin-top:4px">技量：<b style="color:var(--gold)">${tierOf(avg)}</b>　${esc(run.player)} の平均 ${Math.round(avg)}点（${mine.length}回）</div></div>
+    <div class="parts">${scorePartsSVG(run.parts)}</div>
+  </div>
+  <div class="kpis">${kpis}</div>
+  <div class="cards">
+    <div class="card wide"><h4>タイムライン</h4><div class="cap">1発ごとの結果・撃破・被弾を時間順に並べたもの。点にマウスを乗せると詳細が出ます</div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>命中</span><span><i style="background:var(--s2)"></i>ヘッドショット</span><span><i style="border:1.5px solid var(--miss)"></i>外れ</span><span><i style="background:var(--s1);border-radius:1px;transform:rotate(45deg)"></i>亡者撃破</span><span><i style="background:var(--s3);border-radius:1px;transform:rotate(45deg)"></i>クラゲ撃破</span><span><i style="background:var(--bad);border-radius:1px"></i>被弾</span></div>
+      <div class="tblwrap">${timelineSVG(a)}</div></div>
+    <div class="card"><h4>距離別の命中率</h4><div class="cap">撃った瞬間に照準に一番近かった敵までの距離で分類</div>${distSVG(a)}</div>
+    <div class="card"><h4>命中部位</h4><div class="cap">命中した部位の内訳（回数）</div>${partBars(a)}</div>
+    <div class="card"><h4>状況別の命中率</h4><div class="cap">構え（右クリック）の有無・移動中かどうかで比較</div>${condBars(a)}</div>
+    <div class="card"><h4>敵の種類別</h4><div class="cap">出現から撃破までの時間と、その敵から受けたダメージ</div>${foeTable()}</div>
+    <div class="card wide"><h4>成績の推移</h4><div class="cap">射撃分析モードの直近 ${Math.min(hist.length, 12)} 回（右端が今回）</div>${histSVG(hist)}</div>
+  </div>
+  ${onePlayHTML(run)}
+  <div class="btns"><button class="btn an" id="rpAgain">もう一度</button><button class="btn ghost" id="rpLab">データラボ</button><button class="btn ghost" id="rpCsv">1発ごとのデータをCSVで保存</button><button class="btn ghost" id="rpTitle">タイトルへ</button></div>`;
+}
+
+function timelineSVG(a) {
+  const W0 = 1000, L = 70, R = 16, T = Math.max(a.T, 1), x = t => L + clamp(t / T, 0, 1) * (W0 - L - R);
+  const yS = 30, yK = 72, yB = 128;
+  let g = '';
+  for (let t = 0; t <= T; t += T > 150 ? 30 : 15) g += `<line x1="${x(t)}" x2="${x(t)}" y1="12" y2="${yB}" stroke="rgba(217,180,106,.1)"/><text x="${x(t)}" y="${yB + 16}" text-anchor="middle">${t}s</text>`;
+  g += `<line x1="${L}" x2="${W0 - R}" y1="${yB}" y2="${yB}" stroke="rgba(217,180,106,.3)"/>`;
+  g += `<text x="0" y="${yS + 4}">射撃</text><text x="0" y="${yK + 4}">撃破</text><text x="0" y="${yB - 8}">被弾</text>`;
+  for (const s of AN.shots) {
+    const head = s.hits.some(q => q.part === 'head');
+    const tip = `#${s.i}  ${s.t.toFixed(1)}秒\n${s.hits.length ? '命中：' + s.hits.map(q => `${KIND_JP[q.kind]}の${PART_JP[q.part]}${q.kill ? '（撃破）' : ''}`).join('、') : '外れ'}${s.dist != null ? `\n距離 ${s.dist.toFixed(1)}m` : ''}${!s.hits.length && s.err != null ? `　照準ずれ ${s.err.toFixed(1)}°` : ''}\n${s.ads ? '構え' : '腰だめ'}・${s.moving ? '移動中' : '静止'}${s.explosive ? '・爆裂矢' : ''}`;
+    const mark = !s.hits.length ? `<circle r="4.5" fill="none" stroke="var(--miss)" stroke-width="1.8"/>` : `<circle r="${head ? 6.5 : 5.5}" fill="${head ? 'var(--s2)' : 'var(--s1)'}" stroke="var(--surf)" stroke-width="2"/>`;
+    g += `<g transform="translate(${x(s.t).toFixed(1)},${yS})" data-tip="${esc(tip)}"><circle r="10" fill="transparent"/>${mark}</g>`;
+  }
+  for (const r of AN.foes) if (r.died != null) {
+    const tip = `${KIND_JP[r.kind]}を撃破  ${r.died.toFixed(1)}秒\n出現から ${(r.died - r.born).toFixed(1)}秒${r.headshot ? '・ヘッドショット' : ''}`;
+    g += `<g transform="translate(${x(r.died).toFixed(1)},${yK})" data-tip="${esc(tip)}"><circle r="10" fill="transparent"/><rect x="-5" y="-5" width="10" height="10" rx="1.5" transform="rotate(45)" fill="${r.kind === 'jelly' ? 'var(--s3)' : 'var(--s1)'}" stroke="var(--surf)" stroke-width="2"/></g>`;
+  }
+  for (const h of AN.hurts) {
+    const hh = Math.max(4, Math.min(40, h.n * 1.4));
+    g += `<g data-tip="${esc(`被弾 ${Math.round(h.n)}  ${h.t.toFixed(1)}秒\n${KIND_JP[h.kind] || 'その他'}から`)}"><rect x="${x(h.t) - 6}" y="${yB - 44}" width="12" height="44" fill="transparent"/><rect x="${x(h.t) - 2.5}" y="${yB - hh}" width="5" height="${hh}" rx="2" fill="var(--bad)"/></g>`;
+  }
+  return `<svg viewBox="0 0 ${W0} ${yB + 22}" style="min-width:640px">${g}</svg>`;
+}
+function distSVG(a) {
+  const W0 = 460, H = 200, L = 36, B = 168, top = 16, bw = (W0 - L - 10) / a.bins.length;
+  let g = '';
+  for (const v of [0, 50, 100]) { const y = B - (B - top) * v / 100; g += `<line x1="${L}" x2="${W0}" y1="${y}" y2="${y}" stroke="rgba(217,180,106,${v ? .1 : .3})"/><text x="${L - 6}" y="${y + 4}" text-anchor="end">${v}%</text>`; }
+  a.bins.forEach((b, i) => {
+    const cx = L + bw * i + bw / 2, lab = b.b === Infinity ? `${b.a}m〜` : `${b.a}–${b.b}m`;
+    g += `<text x="${cx}" y="${B + 16}" text-anchor="middle">${lab}</text><text x="${cx}" y="${B + 30}" text-anchor="middle" style="font-size:10px">${b.n}発</text>`;
+    if (!b.n) { g += `<text x="${cx}" y="${B - 6}" text-anchor="middle">─</text>`; return; }
+    const h = Math.max(4, (B - top) * b.acc), w = Math.min(34, bw * 0.5);
+    g += `<g data-tip="${esc(`${lab}\n命中率 ${pct(b.acc)}（${b.h}/${b.n}発）`)}"><rect x="${cx - bw / 2 + 2}" y="${top}" width="${bw - 4}" height="${B - top}" fill="transparent"/><path d="M${cx - w / 2},${B} V${B - h + 4} q0,-4 4,-4 h${w - 8} q4,0 4,4 V${B} Z" fill="var(--s1)"/><text x="${cx}" y="${B - h - 6}" text-anchor="middle" style="fill:#efe6d2">${pct(b.acc)}</text></g>`;
+  });
+  return `<svg viewBox="0 0 ${W0} ${H + 6}">${g}</svg>`;
+}
+function hbar(label, v, max, col, right, tip) {
+  return `<div class="hb" data-tip="${esc(tip)}"><span>${label}</span><div class="tr"><i style="width:${max ? v / max * 100 : 0}%;background:${col}"></i></div><span>${right}</span></div>`;
+}
+function partBars(a) {
+  const max = Math.max(1, ...a.parts.map(q => q[1])), tot = a.parts.reduce((x, q) => x + q[1], 0);
+  return a.parts.map(([l, v, c]) => hbar(l, v, max, c, `${v}<small>${tot ? Math.round(v / tot * 100) : 0}%</small>`, `${l}：${v}回`)).join('');
+}
+function condBars(a) {
+  const rows = [['構えて撃つ', a.ads], ['腰だめ', a.hip], ['静止して撃つ', a.still], ['移動しながら', a.move]];
+  return rows.map(([l, r]) => hbar(l, r.acc || 0, 1, 'var(--s1)', `${pct(r.acc)}<small>${r.h}/${r.n}</small>`, `${l}\n命中率 ${pct(r.acc)}（${r.h}/${r.n}発）`)).join('');
+}
+function foeTable() {
+  const rows = ['drowned', 'jelly'].map(k => {
+    const f = AN.foes.filter(r => r.kind === k), kd = f.filter(r => r.died != null);
+    return `<tr><td>${KIND_JP[k]}</td><td>${f.length}</td><td>${kd.length}</td><td>${fx1(mean(kd.map(r => r.died - r.born)), '秒')}</td><td>${k === 'drowned' ? pct(kd.length ? kd.filter(r => r.headshot).length / kd.length : null) : f.filter(r => r.self).length + '体'}</td><td>${Math.round(f.reduce((x, r) => x + r.taken, 0))}</td></tr>`;
+  }).join('');
+  return `<div class="tblwrap"><table class="etab"><tr><th>種類</th><th>出現</th><th>撃破</th><th>平均撃破時間</th><th>HS撃破率 / 自爆</th><th>受けたダメージ</th></tr>${rows}</table></div>`;
+}
+function histSVG(hist) {
+  const h = hist.slice(-12), W0 = 1000, H = 150, L = 40, R = 110, top = 14, B = 136;
+  if (h.length < 2) return `<p class="cap" style="margin:8px 0 4px">2回以上遊ぶと推移グラフが出ます。</p>`;
+  const x = i => L + (W0 - L - R) * i / (h.length - 1), y = v => B - (B - top) * (v || 0);
+  let g = '';
+  for (const v of [0, .5, 1]) g += `<line x1="${L}" x2="${W0 - R}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(217,180,106,${v ? .1 : .3})"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${v * 100}%</text>`;
+  const series = [['acc', '命中率', 'var(--s1)'], ['hs', 'HS率', 'var(--s2)']];
+  const last = h[h.length - 1];
+  for (const [k, name, col] of series) {
+    g += `<polyline points="${h.map((r, i) => `${x(i)},${y(r[k])}`).join(' ')}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/>`;
+    g += `<text x="${x(h.length - 1) + 12}" y="${y(last[k]) + 4}" style="fill:#efe6d2">${name} ${pct(last[k])}</text>`;
+  }
+  h.forEach((r, i) => {
+    const d = new Date(r.at), tip = `${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}  ランク ${r.rank}\n命中率 ${pct(r.acc)}　HS率 ${pct(r.hs)}\n撃破 ${r.kills ?? '─'}体　被ダメ ${Math.round(r.taken)}`;
+    g += `<g data-tip="${esc(tip)}"><rect x="${x(i) - 14}" y="${top}" width="28" height="${B - top}" fill="transparent"/>` +
+      series.map(([k, , col]) => `<circle cx="${x(i)}" cy="${y(r[k])}" r="4.5" fill="${col}" stroke="var(--surf)" stroke-width="2"/>`).join('') + `</g>`;
+  });
+  return `<div class="legend"><span><i style="background:var(--s1)"></i>命中率</span><span><i style="background:var(--s2)"></i>ヘッドショット率</span></div><svg viewBox="0 0 ${W0} ${H}">${g}</svg>`;
+}
+function downloadCsv() {
+  const head = ['shot', 'time_s', 'result', 'hit_kind', 'hit_part', 'damage', 'kills', 'aimed_kind', 'aimed_dist_m', 'aim_error_deg', 'ads', 'moving', 'explosive'];
+  const rows = AN.shots.map(s => {
+    const h = s.hits[0];
+    return [s.i, s.t.toFixed(2), s.hits.length ? (s.hits.some(q => q.part === 'head') ? 'headshot' : 'hit') : 'miss', h ? h.kind : '', s.hits.map(q => q.part).join('+'),
+      Math.round(s.hits.reduce((x, q) => x + q.dealt, 0)), s.hits.filter(q => q.kill).length, s.tgt || '', s.dist != null ? s.dist.toFixed(2) : '',
+      s.err != null ? s.err.toFixed(2) : '', s.ads ? 1 : 0, s.moving ? 1 : 0, s.explosive ? 1 : 0].join(',');
+  });
+  const blob = new Blob(['﻿' + [head.join(','), ...rows].join('\n')], { type: 'text/csv' });
+  const el = document.createElement('a'), d = new Date(), z = n => String(n).padStart(2, '0');
+  el.href = URL.createObjectURL(blob);
+  el.download = `reefmother_shots_${d.getFullYear()}${z(d.getMonth() + 1)}${z(d.getDate())}_${z(d.getHours())}${z(d.getMinutes())}.csv`;
+  document.body.appendChild(el); el.click(); el.remove(); setTimeout(() => URL.revokeObjectURL(el.href), 1000);
+}
+// レポート・ラボ上のツールチップ
+for (const el of [$('report'), $('lab')]) {
+  const tip = $('tip');
+  el.addEventListener('mousemove', ev => {
+    const t = ev.target.closest('[data-tip]');
+    if (!t) { tip.style.opacity = 0; return; }
+    tip.textContent = t.dataset.tip; tip.style.opacity = 1;
+    const w = tip.offsetWidth, h = tip.offsetHeight;
+    tip.style.left = Math.min(innerWidth - w - 8, ev.clientX + 14) + 'px';
+    tip.style.top = (ev.clientY + h + 20 > innerHeight ? ev.clientY - h - 12 : ev.clientY + 16) + 'px';
+  });
+  el.addEventListener('mouseleave', () => { tip.style.opacity = 0; });
+}
+
+// ===================================================================
+// 射撃分析：統計の道具
+// ===================================================================
+const ST = {
+  ok: v => v != null && Number.isFinite(v),
+  sd(a) { if (a.length < 2) return null; const m = mean(a); return Math.sqrt(a.reduce((x, v) => x + (v - m) ** 2, 0) / (a.length - 1)); },
+  pairs(x, y) { const X = [], Y = []; for (let i = 0; i < x.length; i++) if (ST.ok(x[i]) && ST.ok(y[i])) { X.push(x[i]); Y.push(y[i]); } return [X, Y]; },
+  // 標準正規分布の累積（Abramowitz–Stegun の近似）
+  phi(z) {
+    const t = 1 / (1 + 0.2316419 * Math.abs(z)), d = 0.3989423 * Math.exp(-z * z / 2);
+    const p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+    return z > 0 ? 1 - p : p;
+  },
+  // ピアソンの相関と、Fisher 変換による95%信頼区間
+  pearson(x0, y0) {
+    const [x, y] = ST.pairs(x0, y0), n = x.length;
+    if (n < 3) return { r: null, n };
+    const mx = mean(x), my = mean(y); let sxy = 0, sxx = 0, syy = 0;
+    for (let i = 0; i < n; i++) { const a = x[i] - mx, b = y[i] - my; sxy += a * b; sxx += a * a; syy += b * b; }
+    if (!sxx || !syy) return { r: null, n };
+    const r = sxy / Math.sqrt(sxx * syy);
+    if (n <= 3) return { r, n, lo: null, hi: null, p: null };
+    const z = Math.atanh(clamp(r, -0.9999, 0.9999)), se = 1 / Math.sqrt(n - 3);
+    return { r, n, lo: Math.tanh(z - 1.96 * se), hi: Math.tanh(z + 1.96 * se), p: 2 * (1 - ST.phi(Math.abs(z) / se)) };
+  },
+  rank(a) {
+    const idx = a.map((v, i) => [v, i]).sort((p, q) => p[0] - q[0]), r = new Array(a.length);
+    for (let i = 0; i < idx.length;) { let j = i; while (j + 1 < idx.length && idx[j + 1][0] === idx[i][0]) j++; for (let k = i; k <= j; k++) r[idx[k][1]] = (i + j) / 2 + 1; i = j + 1; }
+    return r;
+  },
+  spearman(x0, y0) { const [x, y] = ST.pairs(x0, y0); return ST.pearson(ST.rank(x), ST.rank(y)); },
+  ols(x0, y0) {
+    const [x, y] = ST.pairs(x0, y0); if (x.length < 2) return null;
+    const mx = mean(x), my = mean(y); let sxy = 0, sxx = 0;
+    for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; }
+    return sxx ? { a: my - sxy / sxx * mx, b: sxy / sxx } : null;
+  },
+  wilson(k, n) {
+    if (!n) return [0, 0];
+    const z = 1.96, p = k / n, d = 1 + z * z / n, c = (p + z * z / (2 * n)) / d, h = z * Math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d;
+    return [Math.max(0, c - h), Math.min(1, c + h)];
+  },
+  inv(A) {
+    const n = A.length, M = A.map((r, i) => [...r, ...Array.from({ length: n }, (_, j) => +(i === j))]);
+    for (let c = 0; c < n; c++) {
+      let piv = c; for (let r = c + 1; r < n; r++) if (Math.abs(M[r][c]) > Math.abs(M[piv][c])) piv = r;
+      if (Math.abs(M[piv][c]) < 1e-12) return null;
+      [M[c], M[piv]] = [M[piv], M[c]];
+      const d = M[c][c]; for (let j = 0; j < 2 * n; j++) M[c][j] /= d;
+      for (let r = 0; r < n; r++) if (r !== c) { const f = M[r][c]; if (f) for (let j = 0; j < 2 * n; j++) M[r][j] -= f * M[c][j]; }
+    }
+    return M.map(r => r.slice(n));
+  },
+  // ロジスティック回帰（ニュートン法 = IRLS）。完全分離で発散しないよう、ごく弱いリッジ罰則を入れる
+  logit(X, y, ridge = 1e-3) {
+    const n = X.length, p = X[0].length; let b = new Array(p).fill(0), Hi = null;
+    const hess = () => {
+      const H = Array.from({ length: p }, () => new Array(p).fill(0)), g = new Array(p).fill(0);
+      for (let i = 0; i < n; i++) {
+        const xi = X[i]; let eta = 0; for (let j = 0; j < p; j++) eta += xi[j] * b[j];
+        const mu = 1 / (1 + Math.exp(-eta)), w = mu * (1 - mu);
+        for (let j = 0; j < p; j++) { g[j] += xi[j] * (y[i] - mu); for (let k = 0; k <= j; k++) H[j][k] += w * xi[j] * xi[k]; }
+      }
+      for (let j = 0; j < p; j++) { for (let k = 0; k < j; k++) H[k][j] = H[j][k]; H[j][j] += ridge; g[j] -= ridge * b[j]; }
+      return [H, g];
+    };
+    for (let it = 0; it < 60; it++) {
+      const [H, g] = hess(); Hi = ST.inv(H); if (!Hi) return null;
+      const s = g.map((_, j) => Hi[j].reduce((x, h, k) => x + h * g[k], 0));
+      const mx = Math.max(...s.map(Math.abs)), k = mx > 3 ? 3 / mx : 1;
+      b = b.map((v, j) => v + s[j] * k);
+      if (mx < 1e-7) break;
+    }
+    const [H] = hess(); Hi = ST.inv(H); if (!Hi) return null;
+    return { b, se: Hi.map((r, j) => Math.sqrt(Math.max(0, r[j]))) };
+  },
+  // シード固定の乱数（サンプルデータ用）
+  rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; },
+};
+const r3 = v => ST.ok(v) ? Math.round(v * 1000) / 1000 : null;
+function niceTicks(lo, hi, n = 5) {
+  if (!(hi > lo)) { hi = lo + 1; }
+  const raw = (hi - lo) / n, mag = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / mag;
+  const step = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * mag, out = [];
+  for (let v = Math.ceil(lo / step) * step; v <= hi + step * 1e-6; v += step) out.push(+v.toFixed(10));
+  return out;
+}
+
+// ===================================================================
+// 射撃分析：変数の定義（操作＝原因側、成績＝結果側。説明に使うのは操作だけ）
+// ===================================================================
+const OPS = [
+  { k: 'aimSpd', l: '照準移動量', u: '°/秒', f: 0, d: '1秒あたりに照準を動かした角度' },
+  { k: 'preAim', l: '撃つ前の照準移動', u: '°', f: 1, d: '撃つ直前0.5秒に照準が動いた角度（平均）' },
+  { k: 'settle', l: '照準の静止時間', u: '秒', f: 2, d: '撃つ前に照準が止まっていた時間（平均）' },
+  { k: 'revRate', l: '照準の切り返し', u: '回/秒', f: 2, d: '照準を動かす向きが逆になった回数' },
+  { k: 'mouseSpd', l: 'マウス移動量', u: 'px/秒', f: 0, d: '1秒あたりのマウスの移動距離' },
+  { k: 'walk', l: '歩いた距離', u: 'm', f: 1, d: '甲板を移動した距離の合計' },
+  { k: 'adsRatio', l: '構え時間の割合', u: '%', f: 0, pct: true, d: '右クリックで構えていた時間の割合' },
+  { k: 'gapMean', l: '射撃間隔', u: '秒', f: 2, d: '射撃と射撃の間の時間（平均）' },
+  { k: 'gapCV', l: '射撃リズムのばらつき', u: '', f: 2, d: '射撃間隔の変動係数（大きいほど不規則）' },
+  { k: 'nearDist', l: '敵との距離', u: 'm', f: 1, d: '照準に一番近い敵までの距離（平均）' },
+  { k: 'react', l: '初撃までの時間', u: '秒', f: 2, d: '敵が出てから最初に当てるまで（平均）' },
+  { k: 'track', l: '追従誤差', u: '°', f: 1, d: '照準と最寄りの敵とのずれ（平均）' },
+];
+const OUTS = [
+  { k: 'score', l: 'スコア', u: '点', f: 0, dir: 1 },
+  { k: 'acc', l: '命中率', u: '%', f: 0, pct: true, dir: 1 },
+  { k: 'hs', l: 'ヘッドショット率', u: '%', f: 0, pct: true, dir: 1 },
+  { k: 'kills', l: '撃破数', u: '体', f: 0, dir: 1 },
+  { k: 'taken', l: '被ダメージ', u: '', f: 0, dir: -1 },
+  { k: 'ttk', l: '平均撃破時間', u: '秒', f: 2, dir: -1 },
+];
+// 1発ごとの列
+const SC = { hit: 0, head: 1, pre: 2, settle: 3, rev: 4, mouse: 5, dist: 6, ads: 7, moving: 8, gap: 9, since: 10, err: 11 };
+const SCOL_NAMES = ['hit', 'headshot', 'pre_aim_deg', 'settle_s', 'reversals', 'pre_mouse_px', 'dist_m', 'ads', 'moving', 'gap_s', 'since_spawn_s', 'aim_error_deg'];
+const SVARS = [
+  { i: SC.pre, l: '撃つ前の照準移動', u: '°', f: 1, w: ['小さかった', '大きかった'] },
+  { i: SC.settle, l: '照準の静止時間', u: '秒', f: 2, w: ['短かった', '長かった'] },
+  { i: SC.rev, l: '撃つ前の切り返し', u: '回', f: 1, w: ['少なかった', '多かった'] },
+  { i: SC.mouse, l: '撃つ前のマウス移動', u: 'px', f: 0, w: ['少なかった', '多かった'] },
+  { i: SC.dist, l: '敵との距離', u: 'm', f: 1, w: ['近かった', '遠かった'] },
+  { i: SC.gap, l: '前の射撃からの間隔', u: '秒', f: 2, w: ['短かった', '長かった'] },
+];
+// 敵1体ごとの列：[種類(0亡者/1クラゲ), 出現, 撃破(null=生存), 受けたダメージ, その間の照準移動量(°/秒), その間の敵との距離]
+const FC = { kind: 0, born: 1, died: 2, taken: 3, aim: 4, dist: 5 };
+const fmtV = (v, d) => !ST.ok(v) ? '─' : d.pct ? Math.round(v * 100) + '%' : v.toFixed(d.f);
+const fmtU = (v, d) => !ST.ok(v) ? '─' : fmtV(v, d) + (d.pct ? '' : d.u);
+
+// この1回のデータを、保存・分析しやすい形にまとめる
+function buildRun(a, clear) {
+  const F = AN.frames, sh = AN.shots, T = a.T;
+  const sum = i => F.reduce((x, f) => x + (f[i] || 0), 0), dur = sum(8) || T;
+  const gaps = sh.map(s => s.gap).filter(ST.ok), gm = mean(gaps), gsd = ST.sd(gaps);
+  const nd = F.filter(f => f[7] != null);
+  const ops = {
+    aimSpd: sum(1) / dur, preAim: mean(sh.map(s => s.pre)), settle: mean(sh.map(s => s.settle)),
+    revRate: sum(3) / dur, mouseSpd: sum(2) / dur, walk: sum(5),
+    adsRatio: F.length ? F.reduce((x, f) => x + f[4] * f[8], 0) / dur : null,
+    gapMean: gm, gapCV: gm && gsd != null ? gsd / gm : null,
+    nearDist: mean(nd.map(f => f[7])), react: a.react, track: mean(nd.map(f => f[6])),
+  };
+  const sc = anScore(a);
+  const outs = { score: sc.total, acc: a.acc, hs: a.hs, kills: a.kills, taken: a.taken, ttk: a.ttk };
+  const shots = sh.map(s => [s.hits.length ? 1 : 0, s.hits.some(h => h.part === 'head') ? 1 : 0, r3(s.pre), r3(s.settle), s.rev, Math.round(s.mouse),
+    r3(s.dist), s.ads ? 1 : 0, s.moving ? 1 : 0, r3(s.gap), r3(s.since), r3(s.err)]);
+  const foes = AN.foes.map(r => {
+    const t1 = r.died ?? T, w = F.filter(f => f[0] >= r.born && f[0] <= t1), d = w.reduce((x, f) => x + f[8], 0);
+    return [r.kind === 'jelly' ? 1 : 0, r3(r.born), r.died == null ? null : r3(r.died), Math.round(r.taken),
+      d > 0.3 ? r3(w.reduce((x, f) => x + f[1], 0) / d) : null, r3(mean(w.filter(f => f[7] != null).map(f => f[7])))];
+  });
+  const rd = o => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, r3(v)]));
+  return {
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), player: G.player || 'ゲスト', at: Date.now(), clear, T: r3(T),
+    aim: cursorMode() ? 'cursor' : 'lock', v: 2,  // 視点操作の方式で操作の数値の性質が変わるので記録しておく
+    ops: rd(ops), outs: rd(outs), score: sc.total, parts: sc.parts, shots, foes,
+  };
+}
+
+// 保存（このブラウザの中だけ）
+const LAB_KEY = 'reef-lab-v1';
+const LAB = {
+  runs: [],
+  load() { try { this.runs = (JSON.parse(localStorage.getItem(LAB_KEY) || '{}').runs) || []; } catch (e) { this.runs = []; } },
+  save() { try { localStorage.setItem(LAB_KEY, JSON.stringify({ v: 1, runs: this.runs })); } catch (e) {} },
+  add(r) { this.runs.push(r); this.runs = this.runs.slice(-200); this.save(); },
+  players(runs = this.runs) { const seen = []; for (let i = runs.length - 1; i >= 0; i--) if (!seen.includes(runs[i].player)) seen.push(runs[i].player); return seen; },
+};
+LAB.load();
+
+// ===================================================================
+// Streamlit との橋渡し（app.py の双方向コンポーネントとして開かれたとき）
+//  - ゲーム → Python：同意した人の1回分のデータ（streamlit:setComponentValue）
+//  - Python → ゲーム：保存済みの全員分のデータ（streamlit:render の args.shared）
+//  - 「別ウィンドウで遊ぶ」で開いた窓は、開いた元（同じ出どころのコンポーネント）を経由して送受信する
+// ===================================================================
+const BRIDGE = {
+  on: false, relay: null, shared: null, store: null, height: 0, sig: '',
+  post(msg) { window.parent.postMessage({ isStreamlitMessage: true, ...msg }, '*'); },
+  getShared() { return this.relay ? this.relay.getShared() : this.shared; },
+  send(run) {
+    if (this.relay) return this.relay.send(run);
+    if (!this.on) return false;
+    this.post({ type: 'streamlit:setComponentValue', value: { type: 'run', consent: true, run, nonce: Date.now() }, dataType: 'json' });
+    return true;
+  },
+  setShared(runs, store) {
+    this.shared = Array.isArray(runs) ? runs : []; this.store = store;
+    const sig = this.shared.length + ':' + (this.shared.length ? this.shared[this.shared.length - 1].id : '');
+    if (sig === this.sig) return;  // 同じ中身なら描き直さない（Streamlit は操作のたびに送ってくる）
+    this.sig = sig;
+    if (!$('lab').classList.contains('hidden') && LV.src === 'all') renderLab();
+  },
+};
+window.__reefBridge = BRIDGE;
+if (new URLSearchParams(location.search).has('streamlitUrl') && window.parent !== window) {
+  BRIDGE.on = true;
+  addEventListener('message', ev => {
+    if (ev.source !== window.parent || !ev.data || ev.data.type !== 'streamlit:render') return;
+    const a = ev.data.args || {};
+    if (a.height && a.height !== BRIDGE.height) { BRIDGE.height = a.height; BRIDGE.post({ type: 'streamlit:setFrameHeight', height: a.height }); }
+    if (a.shared) BRIDGE.setShared(a.shared.runs, a.shared.store);
+  });
+  BRIDGE.post({ type: 'streamlit:componentReady', apiVersion: 1 });
+} else {
+  try {
+    const ob = window.opener && window.opener.__reefBridge;  // 同じ出どころなら元の画面の橋渡しを借りる
+    if (ob && ob.on) { BRIDGE.relay = ob; BRIDGE.on = true; }
+  } catch (e) {}
+}
+
+// ===================================================================
+// 射撃分析：グラフの部品
+// ===================================================================
+const PCOL = ['#1fa391', '#b68d34', '#9a78e8', '#d8645a', '#4f8fd8', '#86923a', '#c46bb0'], POTHER = '#8a8a8a';
+function playerColors(runs) {
+  const order = []; for (const r of runs) if (!order.includes(r.player)) order.push(r.player);
+  const m = {}; order.forEach((p, i) => { m[p] = PCOL[i] || POTHER; }); return m;
+}
+// 相関の色：負＝青、0＝グレー、正＝赤（強さで濃く）
+function divColor(r) {
+  if (!ST.ok(r)) return '#241e18';
+  const mix = (a, b, t) => '#' + [0, 2, 4].map(i => Math.round(parseInt(a.substr(i + 1, 2), 16) * (1 - t) + parseInt(b.substr(i + 1, 2), 16) * t).toString(16).padStart(2, '0')).join('');
+  return mix('#383835', r < 0 ? '#4f8fd8' : '#d8645a', Math.min(1, Math.abs(r)));
+}
+function scorePartsSVG(parts) {
+  const W0 = 520, L = 110, R = 58, rowH = 24, lo = Math.min(0, ...parts.map(p => p[1])), hi = Math.max(1, ...parts.map(p => p[1]));
+  const x = v => L + (v - lo) / (hi - lo) * (W0 - L - R);
+  let g = `<line x1="${x(0)}" x2="${x(0)}" y1="0" y2="${parts.length * rowH}" stroke="rgba(217,180,106,.35)"/>`;
+  parts.forEach(([l, v], i) => {
+    const y = i * rowH + 6, x0 = x(Math.min(0, v)), w = Math.max(2, Math.abs(x(v) - x(0)));
+    g += `<g data-tip="${esc(`${l}：${v > 0 ? '+' : ''}${v}点`)}"><rect x="0" y="${y - 4}" width="${W0}" height="${rowH}" fill="transparent"/><text x="0" y="${y + 9}">${l}</text>
+      <rect x="${x0}" y="${y}" width="${w}" height="12" rx="3" fill="${v < 0 ? 'var(--bad)' : 'var(--s1)'}"/><text x="${W0}" y="${y + 10}" text-anchor="end" style="fill:#efe6d2">${v > 0 ? '+' : ''}${v}</text></g>`;
+  });
+  return `<svg viewBox="0 0 ${W0} ${parts.length * rowH + 4}">${g}</svg>`;
+}
+// 散布図：pts = [{x, y, c, tip}]、lines = [{a, b, c, w, dash}]
+function scatterSVG({ pts, xl, yl, fx, fy, lines = [], W0 = 640, H = 340 }) {
+  const L = 56, B = H - 40, T0 = 12, R = 16;
+  const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+  let x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const px = (x1 - x0) * 0.06 || 1, py = (y1 - y0) * 0.08 || 1; x0 -= px; x1 += px; y0 -= py; y1 += py;
+  const X = v => L + (v - x0) / (x1 - x0) * (W0 - L - R), Y = v => B - (v - y0) / (y1 - y0) * (B - T0);
+  let g = '';
+  for (const t of niceTicks(y0, y1, 5)) if (t >= y0 && t <= y1) g += `<line x1="${L}" x2="${W0 - R}" y1="${Y(t)}" y2="${Y(t)}" stroke="rgba(217,180,106,.1)"/><text x="${L - 6}" y="${Y(t) + 4}" text-anchor="end">${fy(t)}</text>`;
+  for (const t of niceTicks(x0, x1, 6)) if (t >= x0 && t <= x1) g += `<text x="${X(t)}" y="${B + 16}" text-anchor="middle">${fx(t)}</text>`;
+  g += `<line x1="${L}" x2="${W0 - R}" y1="${B}" y2="${B}" stroke="rgba(217,180,106,.35)"/>`;
+  g += `<text x="${(L + W0 - R) / 2}" y="${H - 4}" text-anchor="middle" style="fill:#cfc3aa">${esc(xl)}</text><text x="12" y="${T0 + 2}" style="fill:#cfc3aa">${esc(yl)}</text>`;
+  // 回帰直線は描画範囲の外にはみ出さないように切り抜く
+  const cid = 'clp' + Math.random().toString(36).slice(2, 8);
+  g += `<defs><clipPath id="${cid}"><rect x="${L}" y="${T0}" width="${W0 - L - R}" height="${B - T0}"/></clipPath></defs><g clip-path="url(#${cid})">` +
+    lines.map(ln => {
+      const a0 = ln.from ?? x0, a1 = ln.to ?? x1;  // from/to があればその範囲だけ描く（人ごとの線を外挿しない）
+      return `<line x1="${X(a0)}" y1="${Y(ln.a + ln.b * a0)}" x2="${X(a1)}" y2="${Y(ln.a + ln.b * a1)}" stroke="${ln.c}" stroke-width="${ln.w || 2}" ${ln.dash ? 'stroke-dasharray="5 4"' : ''} opacity=".9"/>`;
+    }).join('') + '</g>';
+  for (const p of pts) g += `<g data-tip="${esc(p.tip)}"><circle cx="${X(p.x)}" cy="${Y(p.y)}" r="11" fill="transparent"/><circle cx="${X(p.x)}" cy="${Y(p.y)}" r="5.5" fill="${p.c}" stroke="var(--surf)" stroke-width="2"/></g>`;
+  return `<svg viewBox="0 0 ${W0} ${H}">${g}</svg>`;
+}
+// フォレストプロット（オッズ比。対数目盛）：rows = [{l, or, lo, hi, hl}]
+function forestSVG(rows, W0 = 640) {
+  const L = 260, R = 130, rowH = 30, H = rows.length * rowH + 44, lo = 0.2, hi = 5;
+  const X = v => L + (Math.log(clamp(v, lo, hi)) - Math.log(lo)) / (Math.log(hi) - Math.log(lo)) * (W0 - L - R);
+  let g = '';
+  for (const t of [0.2, 0.5, 1, 2, 5]) g += `<line x1="${X(t)}" x2="${X(t)}" y1="4" y2="${H - 36}" stroke="rgba(217,180,106,${t === 1 ? .45 : .1})"/><text x="${X(t)}" y="${H - 22}" text-anchor="middle">${t}</text>`;
+  g += `<text x="${X(1) - 8}" y="${H - 4}" text-anchor="end" style="font-size:10.5px">← 当たりにくい</text><text x="${X(1) + 8}" y="${H - 4}" style="font-size:10.5px">当たりやすい →</text>`;
+  rows.forEach((r, i) => {
+    const y = i * rowH + 18;
+    g += `<text x="0" y="${y + 4}" style="fill:${r.hl ? '#f6ead0' : '#cfc3aa'}">${esc(r.l)}</text>`;
+    if (!ST.ok(r.or)) { g += `<text x="${L}" y="${y + 4}">─ ばらつきがなく推定できない</text>`; return; }
+    const f2 = v => v >= 100 ? '>100' : v < 0.01 ? '<0.01' : v.toFixed(2);
+    const tip = `${r.l}\nオッズ比 ${r.or.toFixed(2)}（95%CI ${r.lo.toFixed(2)}〜${r.hi.toFixed(2)}）\n${r.or < 1 ? '大きいほど当たりにくい' : '大きいほど当たりやすい'}${r.lo < 1 && r.hi > 1 ? '（ただし1をまたぐので、はっきりしない）' : ''}`;
+    g += `<g data-tip="${esc(tip)}"><rect x="0" y="${y - 12}" width="${W0}" height="${rowH - 2}" fill="transparent"/>
+      <line x1="${X(r.lo)}" x2="${X(r.hi)}" y1="${y}" y2="${y}" stroke="${r.hl ? 'var(--s2)' : '#cfc3aa'}" stroke-width="2"/>
+      <rect x="${X(r.or) - 5}" y="${y - 5}" width="10" height="10" rx="2" fill="${r.hl ? 'var(--s2)' : '#cfc3aa'}"/>
+      <text x="${W0}" y="${y + 4}" text-anchor="end" style="fill:#efe6d2">${f2(r.or)}（${f2(r.lo)}–${f2(r.hi)}）</text></g>`;
+  });
+  return `<svg viewBox="0 0 ${W0} ${H}" style="max-width:${W0 + 80}px">${g}</svg>`;
+}
+// ロジスティック回帰を回して、変数ごとのオッズ比を返す。cols = [{l, get(row) → 数値 | null, z: 標準化するか}]
+function fitLogit(rows, cols, extra = []) {
+  const vals = rows.map(r => cols.map(c => c.get(r)));
+  const keep = rows.map((r, i) => vals[i].every(ST.ok));
+  const R = rows.filter((_, i) => keep[i]), V0 = vals.filter((_, i) => keep[i]);
+  const y = R.map(r => r[SC.hit]), nh = y.filter(v => v).length;
+  if (R.length < 15 || nh < 4 || R.length - nh < 4) return { n: R.length, nh, err: '発数が少ない（命中・外れがそれぞれ4発以上、合計15発以上が必要）' };
+  const st = cols.map((c, j) => { const col = V0.map(v => v[j]); return c.z ? { m: mean(col), s: ST.sd(col) || 1 } : { m: 0, s: 1 }; });
+  const use = cols.map((c, j) => new Set(V0.map(v => v[j])).size > 1);  // ばらつきのない列（全部構えていた等）は外す
+  const ex = extra.map(e => R.map(e.get));
+  const X = R.map((r, i) => [1, ...cols.flatMap((c, j) => use[j] ? [(V0[i][j] - st[j].m) / st[j].s] : []), ...ex.map(col => col[i])]);
+  const fit = ST.logit(X, y); if (!fit) return { n: R.length, nh, err: '計算が収束しなかった' };
+  let k = 1; const out = [];
+  cols.forEach((c, j) => { if (!use[j]) { out.push({ l: c.l, or: null }); return; } const b = fit.b[k], se = fit.se[k]; k++; out.push({ l: c.l, or: Math.exp(b), lo: Math.exp(b - 1.96 * se), hi: Math.exp(b + 1.96 * se), sd: st[j].s, z: c.z }); });
+  return { n: R.length, nh, rows: out };
+}
+
+// ===================================================================
+// レポート：この1プレイでの操作の分析
+// ===================================================================
+function onePlayHTML(run) {
+  // 比べる相手：みんなのデータが十分あればそれ、なければこのブラウザの記録
+  const sh = BRIDGE.getShared() || [], pool = sh.length >= 5 ? sh : LAB.runs;
+  const others = pool.filter(r => r.id !== run.id);
+  return `
+  <div class="rp-head" style="margin-top:26px"><div><div class="en">OPERATION ANALYSIS</div><h2 style="font-size:24px">操作の分析 ─ この1プレイから</h2>
+    <div class="res" style="color:var(--muted)">成績（命中率・撃破・被ダメ）は結果なので説明には使わず、照準の動かし方・移動など「操作」だけで見ています</div></div></div>
+  <div class="cards" style="margin-top:14px">
+    <div class="card wide"><h4>操作プロファイル</h4><div class="cap">${others.length >= 4 ? `${pool === sh ? 'みんなの' : 'これまでの'} ${others.length} 回（細い線）の中で、今回（●）がどのあたりか` : 'この回の操作の数値（記録が5回以上たまると、他の回の中での位置も出ます）'}</div>${profileHTML(run, others)}</div>
+    <div class="card wide"><h4>命中した弾と外れた弾の違い</h4><div class="cap">撃つ直前の操作を、命中した弾（●）と外れた弾（○）で比べたもの。差が大きい順</div>${hitMissHTML(run)}</div>
+    <div class="card wide"><h4>何が命中に効いていたか（1プレイ内の回帰）</h4><div class="cap">命中 ~ 撃つ前の照準移動 ＋ 静止時間 ＋ 敵との距離 ＋ 構え ＋ 移動中（ロジスティック回帰、連続値は1SDあたり）</div>${onePlayLogitHTML(run)}</div>
+    <div class="card"><h4>敵1体ごと：照準の動かし方と撃破の速さ</h4><div class="cap">各敵が出てから倒すまでの間の照準移動量と、倒すまでにかかった時間</div>${foeScatterHTML(run)}</div>
+    <div class="card"><h4>データがたまると、さらにできること</h4><div class="cap">データラボ（複数回・複数人）</div>
+      <div class="note2" style="line-height:1.9">・スコアの高い人は、どの操作が違うのか（上位と下位の比較）<br>・操作と成績の相関マップ（全体／個人内）<br>・人の技量の違いを調整したうえでの「因果の候補」の推定<br>・回ごと・1発ごとのデータ書き出し（CSV / JSON）</div>
+      <div class="btns" style="margin-top:10px;justify-content:flex-start"><button class="btn ghost sm" id="rpLab2">サンプルデータで見てみる</button></div></div>
+  </div>`;
+}
+function profileHTML(run, others) {
+  return `<div class="kpis" style="margin:4px 0 0;grid-template-columns:repeat(auto-fill,minmax(170px,1fr))">` + OPS.map(d => {
+    const v = run.ops[d.k], all = others.map(r => r.ops[d.k]).filter(ST.ok);
+    let strip = '', sub = d.d;
+    if (all.length >= 4 && ST.ok(v)) {
+      const lo = Math.min(v, ...all), hi = Math.max(v, ...all), X = t => 6 + (hi > lo ? (t - lo) / (hi - lo) : 0.5) * 148;
+      const rankPct = Math.round(all.filter(t => t < v).length / all.length * 100);
+      strip = `<svg viewBox="0 0 160 18" style="margin-top:4px">${all.map(t => `<line x1="${X(t)}" x2="${X(t)}" y1="5" y2="13" stroke="rgba(217,180,106,.35)"/>`).join('')}<circle cx="${X(v)}" cy="9" r="4.5" fill="var(--s2)" stroke="var(--surf)" stroke-width="1.5"/></svg>`;
+      sub = `他の回より大きい割合 ${rankPct}%`;
+    }
+    return `<div class="kpi" data-tip="${esc(`${d.l}\n${d.d}`)}"><div class="l">${d.l}</div><div class="v" style="font-size:21px">${fmtV(v, d)}<small>${d.u}</small></div>${strip}<div class="d">${sub}</div></div>`;
+  }).join('') + '</div>';
+}
+function hitMissHTML(run) {
+  const H = run.shots.filter(s => s[SC.hit]), M = run.shots.filter(s => !s[SC.hit]);
+  if (H.length < 3 || M.length < 3) return `<p class="note2">命中・外れがそれぞれ3発以上あると比べられます（今回：命中 ${H.length}・外れ ${M.length}）。</p>`;
+  const rows = SVARS.map(v => {
+    const h = H.map(s => s[v.i]).filter(ST.ok), m = M.map(s => s[v.i]).filter(ST.ok);
+    if (h.length < 2 || m.length < 2) return null;
+    const all = [...h, ...m], sd = ST.sd(all) || 1, mh = mean(h), mm = mean(m);
+    return { v, mh, mm, d: (mh - mm) / sd, lo: Math.min(...all), hi: Math.max(...all), nh: h.length, nm: m.length };
+  }).filter(Boolean).sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
+  const top = rows.filter(r => Math.abs(r.d) >= 0.2).slice(0, 2);
+  const say = top.length ? '命中した弾は外れた弾より、' + top.map(r => `${r.v.l}が平均 ${Math.abs(r.mh - r.mm).toFixed(r.v.f)}${r.v.u} ${r.v.w[r.mh < r.mm ? 0 : 1]}`).join('。また、') + '。'
+    : '命中した弾と外れた弾で、撃つ前の操作に大きな違いは見られませんでした。';
+  const W0 = 640, L = 150, R = 150, rowH = 30;
+  let g = '';
+  rows.forEach((r, i) => {
+    const y = i * rowH + 16, X = t => L + (r.hi > r.lo ? (t - r.lo) / (r.hi - r.lo) : 0.5) * (W0 - L - R);
+    const tip = `${r.v.l}\n命中 ${r.mh.toFixed(r.v.f)}${r.v.u}（${r.nh}発） ／ 外れ ${r.mm.toFixed(r.v.f)}${r.v.u}（${r.nm}発）\n差の大きさ（標準化） ${r.d.toFixed(2)}`;
+    g += `<g data-tip="${esc(tip)}"><rect x="0" y="${y - 13}" width="${W0}" height="${rowH - 2}" fill="transparent"/><text x="0" y="${y + 4}" style="fill:#cfc3aa">${r.v.l}</text>
+      <line x1="${L}" x2="${W0 - R}" y1="${y}" y2="${y}" stroke="rgba(217,180,106,.12)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="${X(r.mh)}" x2="${X(r.mm)}" y1="${y}" y2="${y}" stroke="rgba(239,230,210,.35)" stroke-width="2"/>
+      <circle cx="${X(r.mm)}" cy="${y}" r="5.5" fill="var(--surf)" stroke="#a79c86" stroke-width="2"/><circle cx="${X(r.mh)}" cy="${y}" r="6" fill="var(--s1)" stroke="var(--surf)" stroke-width="2"/>
+      <text x="${W0}" y="${y + 4}" text-anchor="end" style="fill:#efe6d2">${r.mh.toFixed(r.v.f)} ／ ${r.mm.toFixed(r.v.f)}${r.v.u}</text></g>`;
+  });
+  return `<p class="note2">${esc(say)}</p><div class="legend"><span><i style="background:var(--s1)"></i>命中した弾</span><span><i style="border:2px solid #a79c86"></i>外れた弾</span><span style="color:var(--muted)">右の数字：命中 ／ 外れ の平均</span></div>
+    <svg viewBox="0 0 ${W0} ${rows.length * rowH + 6}" style="max-width:${W0 + 80}px">${g}</svg>`;
+}
+const SHOT_MODEL = [
+  { l: '撃つ前の照準移動', get: r => r[SC.pre], z: true, u: '°', f: 1, hl: true },
+  { l: '照準の静止時間', get: r => r[SC.settle], z: true, u: '秒', f: 2 },
+  { l: '敵との距離', get: r => r[SC.dist], z: true, u: 'm', f: 1 },
+  { l: '構えている', get: r => r[SC.ads] },
+  { l: '移動中', get: r => r[SC.moving] },
+];
+function onePlayLogitHTML(run) {
+  const m = fitLogit(run.shots, SHOT_MODEL);
+  if (m.err) return `<p class="note2">${m.err}（今回：${m.n}発・命中 ${m.nh}）。</p>`;
+  // 連続値は「+1SD（＝何°/秒/m）」と実際の大きさも添える
+  const rows = m.rows.map((r, j) => { const d = SHOT_MODEL[j]; return { ...r, hl: d.hl, l: d.z && ST.ok(r.sd) ? `${d.l}（+${r.sd.toFixed(d.f)}${d.u}）` : d.l }; });
+  const sig = m.rows.filter(r => ST.ok(r.or) && (r.hi < 1 || r.lo > 1));
+  return `${forestSVG(rows)}
+    <p class="note2">オッズ比が1より小さいと「その操作が大きいほど当たりにくい」、1より大きいと「当たりやすい」。横線は95%信頼区間で、1をまたいでいれば、はっきりとは言えません。
+    ${sig.length ? `<br>今回はっきり出たもの：<b style="color:#f6ead0">${sig.map(r => r.l.replace(/（.*）/, '')).join('、')}</b>。` : '<br>今回の発数では、はっきり言える操作はありませんでした（1プレイは発数が少ないので幅が広くなりがちです）。'}
+    <br>同じ1人の中での比較なので、技量の違いは最初からそろっています。ただし「狙いにくい敵ほど照準を大きく動かす」ような逆向きの関係も混ざりうるので、因果の候補として読んでください。（${m.n}発・命中 ${m.nh}）</p>`;
+}
+function foeScatterHTML(run) {
+  const f = run.foes.filter(r => r[FC.died] != null && ST.ok(r[FC.aim]));
+  if (f.length < 4) return `<p class="note2">照準の記録がある撃破が4体以上あると表示します（今回 ${f.length} 体）。</p>`;
+  const pts = f.map(r => ({ x: r[FC.aim], y: r[FC.died] - r[FC.born], c: r[FC.kind] ? 'var(--s3)' : 'var(--s1)',
+    tip: `${r[FC.kind] ? '燐光クラゲ' : '亡者'}\n照準移動量 ${r[FC.aim].toFixed(0)}°/秒\n撃破まで ${(r[FC.died] - r[FC.born]).toFixed(1)}秒\n受けたダメージ ${r[FC.taken]}` }));
+  const c = ST.pearson(pts.map(p => p.x), pts.map(p => p.y)), ln = ST.ols(pts.map(p => p.x), pts.map(p => p.y));
+  return `<div class="legend"><span><i style="background:var(--s1)"></i>亡者</span><span><i style="background:var(--s3)"></i>燐光クラゲ</span></div>
+    ${scatterSVG({ pts, xl: 'その敵がいる間の照準移動量（°/秒）', yl: '撃破までの秒数', fx: t => t.toFixed(0), fy: t => t.toFixed(1), lines: ln ? [{ ...ln, c: '#cfc3aa', w: 1.5, dash: true }] : [], W0: 460, H: 260 })}
+    <p class="cap" style="margin-top:4px">相関 r = ${ST.ok(c.r) ? c.r.toFixed(2) : '─'}（${c.n}体）。クラゲは出現から近づくまで時間がかかるので、種類の違いにも注意</p>`;
+}
+
+// ===================================================================
+// サンプルデータ（シミュレーション）：架空の6人×8回。上手い人ほど照準を大きく動かさない、などの構造を入れてある
+// ===================================================================
+let SAMPLE = null;
+function makeSample() {
+  const rnd = ST.rng(20260930), N = (m = 0, s = 1) => m + s * Math.sqrt(-2 * Math.log(1 - rnd())) * Math.cos(2 * Math.PI * rnd());
+  const names = ['サンプルA', 'サンプルB', 'サンプルC', 'サンプルD', 'サンプルE', 'サンプルF'], skills = [1.4, 0.8, 0.3, -0.2, -0.7, -1.3];
+  const runs = [];
+  names.forEach((p, pi) => {
+    for (let k = 0; k < 8; k++) {
+      const s = skills[pi] + N(0, 0.35) + k * 0.04;  // 回を重ねると少しずつ上達
+      const preAim = Math.max(2, N(13 - 3.5 * s, 1.8)), settle = clamp(N(0.26 + 0.07 * s, 0.04), 0.03, 1);
+      const adsRatio = clamp(N(0.35 + 0.08 * s, 0.1), 0, 1), nearDist = Math.max(3, N(9, 1.4));
+      const shots = [];
+      const nShots = Math.round(clamp(N(40 + 4 * s, 5), 20, 70));
+      for (let i = 0; i < nShots; i++) {
+        const pre = Math.max(0, N(preAim, 5)), st = clamp(N(settle, 0.12), 0, 2), dist = clamp(N(nearDist, 4), 1, 30);
+        const ads = rnd() < adsRatio ? 1 : 0, mv = rnd() < 0.2 ? 1 : 0;
+        const eta = 0.3 + 0.55 * s - 0.07 * (pre - 12) + 1.4 * (st - 0.25) - 0.06 * (dist - 9) + 0.35 * ads - 0.7 * mv;
+        const hit = rnd() < 1 / (1 + Math.exp(-eta)) ? 1 : 0;
+        shots.push([hit, hit && rnd() < 0.3 + 0.08 * s ? 1 : 0, r3(pre), r3(st), Math.max(0, Math.round(N(1.2 - 0.3 * s, 0.8))), Math.round(Math.max(0, N(420 - 60 * s, 90))),
+          r3(dist), ads, mv, i ? r3(clamp(N(0.8 - 0.08 * s, 0.25), 0.4, 3)) : null, r3(Math.max(0.3, N(2.5 - 0.4 * s, 0.8))), r3(Math.max(0, N(6 - 1.5 * s, 3)))]);
+      }
+      const hits = shots.filter(r => r[0]).length, acc = hits / shots.length, heads = shots.filter(r => r[1]).length;
+      const kills = Math.max(3, Math.round(N(9 + 2.2 * s + acc * 4, 1.2))), taken = Math.max(0, Math.round(N(38 - 12 * s, 10)));
+      const react = Math.max(0.4, N(2.1 - 0.45 * s, 0.25));
+      const a = { acc, hs: heads / Math.max(1, hits), kills, taken, react };
+      const sc = anScore(a);
+      runs.push({
+        id: `s${pi}${k}`, player: p, at: Date.UTC(2026, 8, 1 + k, 10 + pi), clear: true, T: 30, sample: true,
+        ops: {
+          aimSpd: r3(Math.max(10, N(60 - 10 * s, 7))), preAim: r3(preAim), settle: r3(settle), revRate: r3(Math.max(0.1, N(1.1 - 0.25 * s, 0.2))),
+          mouseSpd: r3(Math.max(100, N(950 - 140 * s, 110))), walk: r3(Math.max(0, N(9, 4))), adsRatio: r3(adsRatio), gapMean: r3(Math.max(0.4, N(0.85 - 0.07 * s, 0.08))),
+          gapCV: r3(Math.max(0.1, N(0.5 - 0.06 * s, 0.08))), nearDist: r3(nearDist), react: r3(react), track: r3(Math.max(1, N(9 - 2 * s, 1.3))),
+        },
+        outs: { score: sc.total, acc: r3(acc), hs: r3(a.hs), kills, taken, ttk: r3(Math.max(0.8, N(3.4 - 0.55 * s, 0.35))) },
+        score: sc.total, parts: sc.parts, shots, foes: [],
+      });
+    }
+  });
+  return runs;
+}
+
+// ===================================================================
+// データラボ（複数回・複数人の分析）
+// ===================================================================
+const LV = { src: 'real', axis: 'score', players: null, tab: 'cmp', unit: 'run', within: false, sx: 'preAim', sy: 'score', expo: SC.pre, delArm: null };
+function openLab(opts = {}) {
+  // 出どころの既定：みんなのデータが十分あればそれ、自分の記録があればそれ、どちらもなければサンプル
+  if (!opts.src) LV.src = (BRIDGE.getShared() || []).length >= 6 ? 'all' : LAB.runs.length ? 'real' : 'sample';
+  Object.assign(LV, opts, { delArm: null, players: null });
+  $('tip').style.opacity = 0;
+  renderLab();
+  $('lab').scrollTop = 0; $('lab').classList.remove('hidden');
+}
+function closeLab() { $('tip').style.opacity = 0; $('lab').classList.add('hidden'); }
+function labAllRuns() {
+  if (LV.src === 'sample') return SAMPLE || (SAMPLE = makeSample());
+  if (LV.src === 'all') return BRIDGE.getShared() || [];
+  return LAB.runs;
+}
+function myName() { try { return G.player || localStorage.getItem('reef-player') || ''; } catch (e) { return G.player || ''; } }
+function labRuns() { const all = labAllRuns(); return LV.players ? all.filter(r => LV.players.includes(r.player)) : all; }
+const outDef = k => OUTS.find(o => o.k === k), opDef = k => OPS.find(o => o.k === k);
+
+function renderLab() {
+  const all = labAllRuns(), runs = labRuns(), cols = playerColors(all), me = myName();
+  // 自分を先頭に、あとは記録の多い順
+  const players = LAB.players(all).sort((a, b) => (b === me) - (a === me) || all.filter(r => r.player === b).length - all.filter(r => r.player === a).length);
+  const ax = outDef(LV.axis);
+  const tabs = [['cmp', '一目で比較'], ['corr', '相関マップ'], ['scatter', '散布図'], ['causal', '因果の手がかり'], ['data', 'データ']];
+  const body = { cmp: labCmp, corr: labCorr, scatter: labScatter, causal: labCausal, data: labData }[LV.tab](runs, cols);
+  $('labBody').innerHTML = `
+  <div class="rp-head"><div><div class="en">DATA LAB</div><h2>データラボ</h2>
+    <div class="res" style="color:var(--muted)">操作（照準の動かし方・移動など）と成績（スコア・命中率など）の関係を、複数回・複数人のデータで調べます</div></div>
+    <div class="rk"><button class="btn ghost sm" id="labClose">閉じる</button></div></div>
+  ${LV.src === 'sample' ? `<p class="note2 warn2">いま表示しているのは<b style="color:#f6ead0">サンプル（シミュレーション）データ</b>です。架空の6人×8回で、機能の見本です。実際に遊んだデータとは混ざっていません。</p>` : ''}
+  ${LV.src === 'all' ? `<p class="note2">データ提供に同意した<b style="color:#f6ead0">全員分のデータ</b>（${all.length}回・${players.length}人）です。1分ほどごとに最新の状態に更新されます。</p>` : ''}
+  <div class="fbar" style="margin-top:12px">
+    <span>データ</span><span class="chips" style="margin:0">
+    ${BRIDGE.on ? (() => { const sh = BRIDGE.getShared() || []; return `<button class="chip${LV.src === 'all' ? ' on' : ''}" data-src="all">みんなのデータ（${sh.length}回・${new Set(sh.map(r => r.player)).size}人）</button>`; })() : ''}
+    <button class="chip${LV.src === 'real' ? ' on' : ''}" data-src="real">このブラウザの記録（${LAB.runs.length}回）</button><button class="chip${LV.src === 'sample' ? ' on' : ''}" data-src="sample">サンプルデータ</button></span>
+    <span>軸</span><select id="labAxis">${OUTS.map(o => `<option value="${o.k}"${o.k === LV.axis ? ' selected' : ''}>${o.l}</option>`).join('')}</select>
+  </div>
+  <div class="fbar" style="margin-top:8px"><span>プレイヤー</span><span class="chips" style="margin:0">
+    <button class="chip${!LV.players ? ' on' : ''}" data-pl="*">全員</button>
+    ${players.slice(0, 30).map(p => `<button class="chip${LV.players && LV.players.includes(p) ? ' on' : ''}" data-pl="${esc(p)}"><i style="background:${cols[p]}"></i>${esc(p)}${p === me ? '（あなた）' : ''}（${all.filter(r => r.player === p).length}）</button>`).join('')}
+    ${players.length > 30 ? `<span style="font-size:11.5px">ほか ${players.length - 30} 人</span>` : ''}
+  </span></div>
+  <div class="tabs">${tabs.map(([k, l]) => `<button class="tab${LV.tab === k ? ' on' : ''}" data-tab="${k}">${l}</button>`).join('')}</div>
+  ${body}`;
+  const B = $('labBody');
+  $('labClose').onclick = closeLab;
+  B.querySelectorAll('[data-src]').forEach(b => b.onclick = () => { LV.src = b.dataset.src; LV.players = null; renderLab(); });
+  B.querySelectorAll('[data-pl]').forEach(b => b.onclick = () => {
+    const p = b.dataset.pl;
+    if (p === '*') LV.players = null;
+    else { const s = new Set(LV.players || []); s.has(p) ? s.delete(p) : s.add(p); LV.players = s.size ? [...s] : null; }
+    renderLab();
+  });
+  B.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => { LV.tab = b.dataset.tab; renderLab(); });
+  $('labAxis').onchange = e => { LV.axis = e.target.value; LV.sy = e.target.value; renderLab(); };
+  B.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { const [x, y] = b.dataset.go.split('|'); LV.sx = x; LV.sy = y; LV.axis = y; LV.tab = 'scatter'; renderLab(); });
+  B.querySelectorAll('[data-set]').forEach(el => el.onchange = el.onclick = ev => {
+    if (el.tagName === 'SELECT' && ev.type === 'click') return;
+    const [k, v] = el.dataset.set.split('='); LV[k] = v != null ? (v === 'true' ? true : v === 'false' ? false : v) : el.value;
+    if (k === 'expo') LV.expo = +LV.expo;
+    renderLab();
+  });
+  B.querySelectorAll('[data-act]').forEach(b => b.onclick = () => labAction(b.dataset.act, b.dataset.arg));
+}
+function needMore(n, need, what) {
+  return `<p class="note2">${what}には、少なくとも ${need} 回分のデータが必要です（いま ${n} 回）。${LV.src === 'real' ? '上の「サンプルデータ」で、データがたまったときの画面を先に見られます。' : ''}</p>`;
+}
+// 人ごとの平均にまとめる（「人ごと」単位の分析用）
+function perPlayer(runs) {
+  const by = {}; for (const r of runs) (by[r.player] = by[r.player] || []).push(r);
+  return Object.entries(by).map(([p, rs]) => ({
+    player: p, n: rs.length,
+    ops: Object.fromEntries(OPS.map(d => [d.k, mean(rs.map(r => r.ops[d.k]).filter(ST.ok))])),
+    outs: Object.fromEntries(OUTS.map(d => [d.k, mean(rs.map(r => r.outs[d.k]).filter(ST.ok))])),
+  }));
+}
+// 個人内：人ごとに平均を引いた値（2回以上ある人だけ）
+function withinVals(runs, get) {
+  const by = {}; runs.forEach((r, i) => (by[r.player] = by[r.player] || []).push(i));
+  const out = runs.map(() => null);
+  for (const idx of Object.values(by)) {
+    const v = idx.map(i => get(runs[i])).filter(ST.ok); if (idx.length < 2 || v.length < 2) continue;
+    const m = mean(v); for (const i of idx) { const x = get(runs[i]); out[i] = ST.ok(x) ? x - m : null; }
+  }
+  return out;
+}
+
+// --- タブ1：一目で比較（上位1/3 と 下位1/3）
+function labCmp(runs0) {
+  const ax = outDef(LV.axis), units = LV.unit === 'player' ? perPlayer(runs0) : runs0;
+  const need = LV.unit === 'player' ? 4 : 6;
+  const unitSel = `<div class="fbar" style="margin-bottom:8px"><span>比べる単位</span><span class="chips" style="margin:0"><button class="chip${LV.unit === 'run' ? ' on' : ''}" data-set="unit=run">1回ごと</button><button class="chip${LV.unit === 'player' ? ' on' : ''}" data-set="unit=player">人ごと（平均）</button></span></div>`;
+  const U = units.filter(u => ST.ok(u.outs[ax.k]));
+  if (U.length < need) return unitSel + needMore(U.length, need, `「${ax.l}の高い${LV.unit === 'player' ? '人' : '回'}は何が違うか」を出す`);
+  const sorted = [...U].sort((a, b) => (b.outs[ax.k] - a.outs[ax.k]) * ax.dir), k = Math.max(2, Math.floor(sorted.length / 3));
+  const top = sorted.slice(0, k), bot = sorted.slice(-k);
+  const rows = OPS.map(d => {
+    const t = top.map(u => u.ops[d.k]).filter(ST.ok), b = bot.map(u => u.ops[d.k]).filter(ST.ok), all = U.map(u => u.ops[d.k]).filter(ST.ok);
+    if (t.length < 2 || b.length < 2) return null;
+    const sd = ST.sd(all) || 1, c = ST.pearson(U.map(u => u.ops[d.k]), U.map(u => u.outs[ax.k] * ax.dir));
+    return { d, mt: mean(t), mb: mean(b), es: (mean(t) - mean(b)) / sd, c };
+  }).filter(Boolean).sort((a, b) => Math.abs(b.es) - Math.abs(a.es));
+  const strong = rows.filter(r => Math.abs(r.es) >= 0.5).slice(0, 3);
+  const unitWord = LV.unit === 'player' ? '人' : '回';
+  const head = strong.length
+    ? `${ax.l}の高い${unitWord}は、${strong.map(r => `${r.d.l}が${r.es < 0 ? '少ない' : '多い'}`).join('・')}傾向があります。`
+    : `${ax.l}の上位と下位で、操作に大きな違いは見られませんでした。`;
+  const W0 = 700, L = 170, R = 170, rowH = 30, lim = Math.max(1, ...rows.map(r => Math.abs(r.es))), X = v => L + (v + lim) / (2 * lim) * (W0 - L - R);
+  let g = `<line x1="${X(0)}" x2="${X(0)}" y1="0" y2="${rows.length * rowH + 4}" stroke="rgba(217,180,106,.45)"/>
+    <text x="${X(-lim * 0.5)}" y="${rows.length * rowH + 20}" text-anchor="middle" style="font-size:10.5px">← 上位の方が少ない</text><text x="${X(lim * 0.5)}" y="${rows.length * rowH + 20}" text-anchor="middle" style="font-size:10.5px">上位の方が多い →</text>`;
+  rows.forEach((r, i) => {
+    const y = i * rowH + 16, x0 = X(Math.min(0, r.es)), w = Math.max(2, Math.abs(X(r.es) - X(0)));
+    const tip = `${r.d.l}（${r.d.d}）\n上位 ${fmtU(r.mt, r.d)} ／ 下位 ${fmtU(r.mb, r.d)}\n差の大きさ（標準化） ${r.es.toFixed(2)}\n${ax.l}の良さとの相関 r = ${ST.ok(r.c.r) ? r.c.r.toFixed(2) : '─'}${ST.ok(r.c.lo) ? `（95%CI ${r.c.lo.toFixed(2)}〜${r.c.hi.toFixed(2)}）` : ''}　n=${r.c.n}`;
+    g += `<g data-tip="${esc(tip)}"><rect x="0" y="${y - 13}" width="${W0}" height="${rowH - 2}" fill="transparent"/><text x="0" y="${y + 4}" style="fill:${Math.abs(r.es) >= 0.5 ? '#f6ead0' : '#cfc3aa'}">${r.d.l}</text>
+      <rect x="${x0}" y="${y - 7}" width="${w}" height="14" rx="3" fill="${r.es < 0 ? 'var(--neg)' : 'var(--pos)'}" opacity="${Math.abs(r.es) >= 0.5 ? 1 : 0.55}"/>
+      <text x="${W0}" y="${y + 4}" text-anchor="end" style="fill:#efe6d2">${fmtU(r.mt, r.d)} ／ ${fmtU(r.mb, r.d)}　r=${ST.ok(r.c.r) ? r.c.r.toFixed(2) : '─'}</text></g>`;
+  });
+  return unitSel + `<div class="card"><h4>${ax.l}の高い${unitWord}は、何が違う？</h4>
+    <div class="cap">${ax.l}の上位1/3（${top.length}${unitWord}）と下位1/3（${bot.length}${unitWord}）で、各操作の平均の差を標準化した値。棒が長いほど違いが大きい（0.5以上を強調）。右：上位 ／ 下位 の平均、r＝${ax.l}の良さとの相関</div>
+    <p class="note2" style="font-size:14px;color:#f6ead0">${esc(head)}</p>
+    <svg viewBox="0 0 ${W0} ${rows.length * rowH + 26}">${g}</svg>
+    <p class="cap" style="margin-top:6px">${ax.l}の材料（命中率・撃破・被ダメなど）は結果なので、ここには入れていません。これは関連で、因果とは限りません（例：上手い人は照準が安定していて、かつ当てるのも上手い）。技量をそろえた比較は「因果の手がかり」タブへ。</p></div>`;
+}
+
+// --- タブ2：相関マップ
+function labCorr(runs) {
+  if (runs.length < 5) return needMore(runs.length, 5, '相関マップ');
+  const tog = `<div class="fbar" style="margin-bottom:8px"><span>見方</span><span class="chips" style="margin:0"><button class="chip${!LV.within ? ' on' : ''}" data-set="within=false">全体</button><button class="chip${LV.within ? ' on' : ''}" data-set="within=true">個人内（人ごとの平均を引く）</button></span></div>`;
+  const get = (r, k, grp) => r[grp][k];
+  const col = (k, grp) => LV.within ? withinVals(runs, r => get(r, k, grp)) : runs.map(r => get(r, k, grp));
+  const oc = Object.fromEntries(OUTS.map(o => [o.k, col(o.k, 'outs')]));
+  const cells = OPS.map(d => { const x = col(d.k, 'ops'); return { d, cs: OUTS.map(o => ST.pearson(x, oc[o.k])) }; });
+  const flat = cells.flatMap(c => c.cs.map((cc, j) => ({ d: c.d, o: OUTS[j], c: cc }))).filter(z => ST.ok(z.c.r)).sort((a, b) => Math.abs(b.c.r) - Math.abs(a.c.r)).slice(0, 8);
+  return tog + `<div class="cards"><div class="card wide"><h4>操作 × 成績 の相関マップ${LV.within ? '（個人内）' : ''}</h4>
+    <div class="cap">赤＝正の相関（操作が大きいほど成績の値も大きい）、青＝負の相関。数字は相関係数 r。${LV.within ? '人ごとの平均を引いてから計算しているので、「人による違い」を除いた、同じ人の中での関係です。' : ''}被ダメージ・撃破時間は小さいほど良い点に注意。マスをクリックすると散布図へ</div>
+    <div class="tblwrap"><table class="hm"><tr><th></th>${OUTS.map(o => `<th>${o.l}</th>`).join('')}</tr>
+    ${cells.map(c => `<tr><th class="r">${c.d.l}</th>${c.cs.map((cc, j) => `<td style="background:${divColor(cc.r)}" data-go="${c.d.k}|${OUTS[j].k}" data-tip="${esc(`${c.d.l} × ${OUTS[j].l}\nr = ${ST.ok(cc.r) ? cc.r.toFixed(2) : '─'}${ST.ok(cc.lo) ? `（95%CI ${cc.lo.toFixed(2)}〜${cc.hi.toFixed(2)}）` : ''}\nn = ${cc.n}`)}">${ST.ok(cc.r) ? cc.r.toFixed(2) : '─'}</td>`).join('')}</tr>`).join('')}
+    </table></div>
+    <div class="legend" style="margin-top:8px"><span><i style="background:#4f8fd8;border-radius:2px"></i>負の相関</span><span><i style="background:#383835;border-radius:2px"></i>ほぼ無関係</span><span><i style="background:#d8645a;border-radius:2px"></i>正の相関</span></div></div>
+    <div class="card wide"><h4>関連が強い組み合わせ</h4><div class="tblwrap"><table class="tbl"><tr><th>操作</th><th class="l">成績</th><th>r</th><th>95%CI</th><th>n</th><th class="l">強さの目安</th></tr>
+    ${flat.map(z => `<tr style="cursor:pointer" data-go="${z.d.k}|${z.o.k}"><td>${z.d.l}</td><td class="l">${z.o.l}</td><td>${z.c.r.toFixed(2)}</td><td>${ST.ok(z.c.lo) ? `${z.c.lo.toFixed(2)}〜${z.c.hi.toFixed(2)}` : '─'}</td><td>${z.c.n}</td><td class="l">${Math.abs(z.c.r) >= 0.5 ? '強い' : Math.abs(z.c.r) >= 0.3 ? '中くらい' : '弱い'}${ST.ok(z.c.lo) && z.c.lo * z.c.hi > 0 ? '' : '（区間が0をまたぐ）'}</td></tr>`).join('')}
+    </table></div></div></div>`;
+}
+
+// --- タブ3：散布図
+function labScatter(runs, cols) {
+  if (runs.length < 3) return needMore(runs.length, 3, '散布図');
+  const dx = opDef(LV.sx) || OPS[0], dy = outDef(LV.sy) || OUTS[0];
+  const xs = runs.map(r => r.ops[dx.k]), ys = runs.map(r => r.outs[dy.k]);
+  const pts = runs.map((r, i) => ST.ok(xs[i]) && ST.ok(ys[i]) ? { x: xs[i], y: ys[i], c: cols[r.player],
+    tip: `${r.player}　${new Date(r.at).toLocaleString('ja-JP')}\n${dx.l} ${fmtU(xs[i], dx)}\n${dy.l} ${fmtU(ys[i], dy)}\nスコア ${r.score}` } : null).filter(Boolean);
+  const c = ST.pearson(xs, ys), sp = ST.spearman(xs, ys), ln = ST.ols(xs, ys);
+  const wc = ST.pearson(withinVals(runs, r => r.ops[dx.k]), withinVals(runs, r => r.outs[dy.k]));
+  const lines = ln ? [{ ...ln, c: '#efe6d2', w: 2 }] : [];
+  for (const p of LAB.players(runs)) { const rs = runs.filter(r => r.player === p); if (rs.length >= 3) {
+    const px = rs.map(r => r.ops[dx.k]), l2 = ST.ols(px, rs.map(r => r.outs[dy.k])), ok = px.filter(ST.ok);
+    if (l2) lines.push({ ...l2, c: cols[p], w: 1.4, dash: true, from: Math.min(...ok), to: Math.max(...ok) });
+  } }
+  const fr = v => ST.ok(v) ? v.toFixed(2) : '─';
+  return `<div class="fbar" style="margin-bottom:8px"><span>横軸（操作）</span><select data-set="sx">${OPS.map(o => `<option value="${o.k}"${o.k === dx.k ? ' selected' : ''}>${o.l}</option>`).join('')}</select>
+    <span>縦軸（成績）</span><select data-set="sy">${OUTS.map(o => `<option value="${o.k}"${o.k === dy.k ? ' selected' : ''}>${o.l}</option>`).join('')}</select></div>
+    <div class="card"><h4>${dx.l} と ${dy.l}</h4><div class="cap">点は1回ぶん。色はプレイヤー。白い線は全体の回帰直線、点線は人ごとの回帰直線（3回以上ある人）</div>
+    <div class="legend">${LAB.players(runs).reverse().map(p => `<span><i style="background:${cols[p]}"></i>${esc(p)}</span>`).join('')}</div>
+    ${scatterSVG({ pts, xl: `${dx.l}（${dx.u || '─'}）`, yl: dy.l, fx: t => dx.pct ? Math.round(t * 100) + '%' : +t.toFixed(2) + '', fy: t => dy.pct ? Math.round(t * 100) + '%' : +t.toFixed(2) + '', lines, W0: 760, H: 380 })}
+    <div class="sbox"><div>相関 r<b>${fr(c.r)}</b>95%CI ${ST.ok(c.lo) ? `${fr(c.lo)}〜${fr(c.hi)}` : '─'}</div><div>順位相関 ρ<b>${fr(sp.r)}</b>外れ値に強い</div><div>回数 n<b>${c.n}</b>${LAB.players(runs).length}人</div>
+      <div>傾き<b>${ln ? (dy.pct ? (ln.b * 100).toFixed(2) + '%' : ln.b.toFixed(2)) : '─'}</b>${dx.l} 1${dx.pct ? '%' : dx.u}あたり</div><div>個人内の相関<b>${fr(wc.r)}</b>人の違いを除いた関係（n=${wc.n}）</div></div>
+    ${ST.ok(c.r) && ST.ok(wc.r) && Math.sign(c.r) !== Math.sign(wc.r) && Math.abs(c.r) > 0.2 ? `<p class="note2 warn2">全体の相関と個人内の相関で向きが逆です。人による違い（技量など）が見かけの関係を作っている可能性があります（シンプソンのパラドックス）。</p>` : ''}</div>`;
+}
+
+// --- タブ4：因果の手がかり（1発単位のロジスティック回帰を、調整を増やしながら比べる）
+function labCausal(runs) {
+  const EXPO = SVARS.filter(v => [SC.pre, SC.settle, SC.rev, SC.mouse].includes(v.i));
+  const ev = EXPO.find(v => v.i === LV.expo) || EXPO[0];
+  const rows = runs.flatMap(r => r.shots.map(s => ({ s, p: r.player, id: r.id })));
+  const sel = `<div class="fbar" style="margin-bottom:8px"><span>調べる操作</span><select data-set="expo">${EXPO.map(v => `<option value="${v.i}"${v.i === ev.i ? ' selected' : ''}>${v.l}</option>`).join('')}</select><span>→ 結果：その弾が命中したか</span></div>`;
+  const dag = dagSVG(ev.l);
+  if (rows.length < 30) return sel + `<div class="card">${dag}</div>` + needMore(runs.length, 2, '推定（合計30発以上）');
+  // 技量：その回を除いた、同じ人の他の回の平均スコア（その回のスコアを使うと、命中そのものが混ざって循環する）
+  const loo = {};
+  for (const r of runs) { const o = runs.filter(q => q.player === r.player && q.id !== r.id).map(q => q.score); loo[r.id] = o.length ? mean(o) : null; }
+  const players = [...new Set(rows.map(z => z.p))];
+  const x = { l: `${ev.l}（+1SD）`, get: z => z.s[ev.i], z: true };
+  const cov = [{ l: '敵との距離（+1SD）', get: z => z.s[SC.dist], z: true }, { l: '構えている', get: z => z.s[SC.ads] }, { l: '移動中', get: z => z.s[SC.moving] }];
+  const R = rows.map(z => Object.assign([...z.s], { z }));
+  const G1 = c => ({ ...c, get: r => c.get(r.z) });
+  const m1 = fitLogit(R, [G1(x)]);
+  const m2 = fitLogit(R, [G1(x), ...cov.map(G1)]);
+  const m3 = players.length >= 2 ? fitLogit(R, [G1(x), ...cov.map(G1)], players.slice(1).map(p => ({ get: r => +(r.z.p === p) }))) : null;
+  const m4 = fitLogit(R.filter(r => ST.ok(loo[r.z.id])), [G1(x), ...cov.map(G1), G1({ l: '技量スコア（他の回の平均）', get: z => loo[z.id], z: true })]);
+  const pick = (m, l) => m && !m.err ? { ...m.rows[0], l, n: m.n } : { l, or: null, n: m ? m.n : 0 };
+  const fr = [pick(m1, '① 調整なし（生の関係）'), pick(m2, '② 状況をそろえる（距離・構え・移動）'), pick(m3, '③ ②＋人の違いをそろえる（固定効果）'), pick(m4, '④ ②＋技量スコアでそろえる')];
+  fr[2].hl = true;
+  const best = ST.ok(fr[2].or) ? fr[2] : fr[1];
+  const sdTxt = best.sd ? `（1SD＝${best.sd.toFixed(ev.f)}${ev.u}）` : '';
+  const say = !ST.ok(best.or) ? '推定できませんでした（データ不足）。'
+    : `${ev.l}が1SD${sdTxt}大きいと、命中のオッズは ${best.or.toFixed(2)} 倍（95%CI ${best.lo.toFixed(2)}〜${best.hi.toFixed(2)}）。` +
+      (best.hi < 1 ? '人や状況の違いをそろえても「大きいほど当たりにくい」関連が残っています。' : best.lo > 1 ? '人や状況の違いをそろえても「大きいほど当たりやすい」関連が残っています。' : '区間が1をまたいでいるので、はっきりした関連とは言えません。');
+  const m3cov = m3 && !m3.err ? m3.rows.slice(1) : [];
+  return sel + `<div class="cards">
+    <div class="card wide"><h4>想定している因果の図（DAG）</h4><div class="cap">矢印は「影響するかもしれない」向き。金色の矢印が調べたい関係。技量は直接測れないので（点線）、人の固定効果や技量スコアで代わりにそろえます</div>${dag}</div>
+    <div class="card wide"><h4>調整すると関係はどう変わる？</h4><div class="cap">${ev.l}が1SD大きいときの、命中のオッズ比（1発単位のロジスティック回帰）</div>
+      ${forestSVG(fr, 720)}
+      <p class="note2" style="color:#f6ead0">${esc(say)}</p>
+      <p class="cap">①→③で値が1に近づくなら、生の関係の一部は「人や状況の違い」による見かけのものです。${fr.map(r => r.n).filter(Boolean).length ? `（${Math.max(...fr.map(r => r.n))}発・${players.length}人）` : ''}</p></div>
+    <div class="card wide"><h4>③のモデルの他の変数</h4><div class="tblwrap"><table class="tbl"><tr><th>変数</th><th>オッズ比</th><th>95%CI</th><th class="l">読み方</th></tr>
+      ${m3cov.map(r => `<tr><td>${r.l}</td><td>${ST.ok(r.or) ? r.or.toFixed(2) : '─'}</td><td>${ST.ok(r.or) ? `${r.lo.toFixed(2)}〜${r.hi.toFixed(2)}` : '─'}</td><td class="l">${!ST.ok(r.or) ? 'ばらつきがなく推定できない' : r.hi < 1 ? '当たりにくくなる' : r.lo > 1 ? '当たりやすくなる' : 'はっきりしない'}</td></tr>`).join('') || '<tr><td colspan="4" class="l">2人以上のデータがあると表示します</td></tr>'}
+    </table></div>
+    <p class="note2">これは「関連（調整あり）＝因果の候補」です。測っていない要因（その敵の狙いにくさなど）や、「当てにくい敵ほど照準を大きく動かす」ような逆向きの関係が残っている可能性があります。因果と言い切るには、条件をランダムに割り当てる実験が必要です。</p></div>
+  </div>`;
+}
+function dagSVG(expo) {
+  // 上段：技量、中段：操作 → 命中、下段：状況（線が箱を横切らない配置）
+  const N = {
+    skill: [370, 34, '技量（測れない）', 'dash'], expo: [190, 140, expo, 'expo'], hit: [540, 140, '命中', 'out'],
+    dist: [110, 248, '敵との距離', ''], ads: [310, 248, '構え', ''], move: [490, 248, '移動中', ''],
+  };
+  const E = [['skill', 'expo'], ['skill', 'hit'], ['dist', 'expo'], ['dist', 'hit'], ['ads', 'expo'], ['ads', 'hit'], ['move', 'hit'], ['expo', 'hit']];
+  let g = `<defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a79c86"/></marker>
+    <marker id="arw2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b68d34"/></marker></defs>`;
+  const box = k => { const [x, y, l] = N[k]; const w = Math.max(76, l.length * 13 + 22); return { x, y, w, h: 30 }; };
+  for (const [a, b] of E) {
+    const A = box(a), B = box(b), dx = B.x - A.x, dy = B.y - A.y, L0 = Math.hypot(dx, dy);
+    const cut = (bx, ux, uy) => { const tx = Math.abs(ux) > 1e-6 ? (bx.w / 2) / Math.abs(ux) : Infinity, ty = Math.abs(uy) > 1e-6 ? (bx.h / 2) / Math.abs(uy) : Infinity; return Math.min(tx, ty) + 3; };
+    const ux = dx / L0, uy = dy / L0, s = cut(A, ux, uy), e = cut(B, ux, uy), main = a === 'expo' && b === 'hit';
+    g += `<line x1="${A.x + ux * s}" y1="${A.y + uy * s}" x2="${B.x - ux * e}" y2="${B.y - uy * e}" stroke="${main ? '#b68d34' : '#a79c86'}" stroke-width="${main ? 2.5 : 1.3}" marker-end="url(#${main ? 'arw2' : 'arw'})" ${a === 'skill' ? 'stroke-dasharray="4 3"' : ''}/>`;
+  }
+  for (const k in N) {
+    const [x, y, l, t] = N[k], b = box(k);
+    const stroke = t === 'expo' ? '#b68d34' : t === 'out' ? '#1fa391' : '#6b6152';
+    g += `<rect x="${x - b.w / 2}" y="${y - 15}" width="${b.w}" height="30" rx="6" fill="#0b0907" stroke="${stroke}" stroke-width="${t ? 2 : 1.2}" ${t === 'dash' ? 'stroke-dasharray="4 3"' : ''}/>
+      <text x="${x}" y="${y + 4}" text-anchor="middle" style="fill:#efe6d2;font-size:12px">${esc(l)}</text>`;
+  }
+  return `<svg viewBox="0 0 640 272" style="max-width:640px;margin:0 auto">${g}</svg>`;
+}
+
+// --- タブ5：データ
+function labData(runs) {
+  const real = LV.src === 'real', all = labAllRuns(), players = LAB.players(all);
+  const tbl = `<div class="tblwrap" style="max-height:360px;overflow-y:auto"><table class="tbl"><tr><th>日時</th><th class="l">プレイヤー</th><th>スコア</th><th>命中率</th><th>HS率</th><th>撃破</th><th>被ダメ</th>${OPS.slice(0, 4).map(o => `<th>${o.l}</th>`).join('')}<th>発数</th></tr>
+    ${[...runs].reverse().map(r => `<tr><td>${new Date(r.at).toLocaleString('ja-JP', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</td><td class="l">${esc(r.player)}</td><td>${r.score}</td><td>${pct(r.outs.acc)}</td><td>${pct(r.outs.hs)}</td><td>${r.outs.kills}</td><td>${Math.round(r.outs.taken)}</td>${OPS.slice(0, 4).map(o => `<td>${fmtV(r.ops[o.k], o)}</td>`).join('')}<td>${r.shots.length}</td></tr>`).join('')}
+    </table></div>`;
+  const del = LV.src === 'all' ? '<p class="cap">みんなのデータはここからは削除できません（管理者がスプレッドシートで管理します）。</p>'
+    : !real ? '<p class="cap">サンプルデータは削除できません（毎回同じものが作られます）。</p>' : `
+    <div class="fbar" style="margin-top:10px"><span>削除</span><select id="labDelSel">${players.map(p => `<option value="${esc(p)}">${esc(p)}（${all.filter(r => r.player === p).length}回）</option>`).join('')}</select>
+    <button class="btn ghost sm danger" data-act="delPlayer">${LV.delArm === 'player' ? 'もう一度押すと削除' : 'この人のデータを削除'}</button>
+    <button class="btn ghost sm danger" data-act="delAll">${LV.delArm === 'all' ? 'もう一度押すと全部削除' : '全データを削除'}</button></div>`;
+  return `<div class="card"><h4>記録一覧（${runs.length}回）</h4><div class="cap">新しい順。いま選んでいるプレイヤーのみ</div>${tbl}
+    <div class="btns" style="justify-content:flex-start;margin-top:14px">
+      <button class="btn ghost sm" data-act="csvRuns">回ごとのCSV</button><button class="btn ghost sm" data-act="csvShots">1発ごとのCSV</button><button class="btn ghost sm" data-act="json">全部をJSON</button></div>
+    <p class="cap" style="margin-top:6px">CSV は Excel や Python（pandas）でそのまま開けます。1発ごとのCSVには run_id と player が付くので、回・人と結び付けて分析できます。</p>
+    ${del}</div>`;
+}
+function saveFile(name, text, type) {
+  const blob = new Blob([text], { type }), el = document.createElement('a');
+  el.href = URL.createObjectURL(blob); el.download = name; document.body.appendChild(el); el.click(); el.remove(); setTimeout(() => URL.revokeObjectURL(el.href), 1000);
+}
+const csvCell = v => v == null ? '' : typeof v === 'string' && /[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v;
+function labAction(act) {
+  const runs = labRuns(), stamp = new Date().toISOString().slice(0, 16).replace(/[-:T]/g, '');
+  if (act === 'csvRuns') {
+    const head = ['run_id', 'player', 'datetime', 'completed', 'score', ...OUTS.filter(o => o.k !== 'score').map(o => o.k), ...OPS.map(o => o.k), 'shots'];
+    const rows = runs.map(r => [r.id, r.player, new Date(r.at).toISOString(), r.clear ? 1 : 0, r.score, ...OUTS.filter(o => o.k !== 'score').map(o => r.outs[o.k]), ...OPS.map(o => r.ops[o.k]), r.shots.length].map(csvCell).join(','));
+    saveFile(`reefmother_runs_${stamp}.csv`, '﻿' + [head.join(','), ...rows].join('\n'), 'text/csv');
+  } else if (act === 'csvShots') {
+    const head = ['run_id', 'player', 'shot', ...SCOL_NAMES];
+    const rows = runs.flatMap(r => r.shots.map((s, i) => [r.id, r.player, i + 1, ...s].map(csvCell).join(',')));
+    saveFile(`reefmother_shots_all_${stamp}.csv`, '﻿' + [head.join(','), ...rows].join('\n'), 'text/csv');
+  } else if (act === 'json') {
+    saveFile(`reefmother_lab_${stamp}.json`, JSON.stringify({ v: 1, shotColumns: SCOL_NAMES, foeColumns: Object.keys(FC), runs }, null, 1), 'application/json');
+  } else if (act === 'delPlayer' || act === 'delAll') {
+    const kind = act === 'delAll' ? 'all' : 'player';
+    if (LV.delArm !== kind) { LV.delArm = kind; renderLab(); return; }
+    if (kind === 'all') LAB.runs = [];
+    else { const p = $('labDelSel').value; LAB.runs = LAB.runs.filter(r => r.player !== p); }
+    LAB.save(); LV.delArm = null; LV.players = null; renderLab();
+  }
+}
+
+// --- プレイヤー名の入力
+function openNamePanel() {
+  const names = LAB.players();
+  let last = ''; try { last = localStorage.getItem('reef-player') || ''; } catch (e) {}
+  $('npName').value = last || '';
+  $('npChips').innerHTML = names.slice(0, 12).map(n => `<button class="chip" data-n="${esc(n)}">${esc(n)}</button>`).join('');
+  $('npChips').querySelectorAll('[data-n]').forEach(b => b.onclick = () => { $('npName').value = b.dataset.n; });
+  // データを集められる環境（Streamlit 版）のときだけ同意欄を出す。前回の選択を覚えておく（最初は未チェック）
+  $('npConsentRow').classList.toggle('hidden', !BRIDGE.on);
+  let c = false; try { c = localStorage.getItem('reef-consent') === '1'; } catch (e) {}
+  $('npConsent').checked = c;
+  $('namePanel').classList.remove('hidden');
+  setTimeout(() => $('npName').focus(), 30);
+}
+function startAnalysis() {
+  const n = $('npName').value.trim().slice(0, 16) || 'ゲスト';
+  G.player = n; G.consent = BRIDGE.on && $('npConsent').checked;
+  try { localStorage.setItem('reef-player', n); localStorage.setItem('reef-consent', G.consent ? '1' : '0'); } catch (e) {}
+  $('namePanel').classList.add('hidden');
+  startStage(ANA, { skipIntro: true });
+}
+$('npGo').onclick = startAnalysis;
+$('npCancel').onclick = () => $('namePanel').classList.add('hidden');
+$('npName').addEventListener('keydown', e => { if (e.key === 'Enter') startAnalysis(); if (e.key === 'Escape') $('namePanel').classList.add('hidden'); });
+$('labBtn').addEventListener('click', () => openLab());
 
 // ===================================================================
 // 更新：プレイヤー・武器
@@ -2945,7 +4149,7 @@ function updateCamera(dt, t) {
 // ===================================================================
 // 流れ（タイトル・ステージ開始・クリア・敗北・エンディング）
 // ===================================================================
-function hideScreens() { for (const id of ['title', 'end', 'pause', 'credits']) $(id).classList.add('hidden'); }
+function hideScreens() { $('tip').style.opacity = 0; for (const id of ['title', 'end', 'pause', 'credits', 'report', 'lab', 'namePanel']) $(id).classList.add('hidden'); }
 function resetWorld() {
   clearEnemies(); clearOrbs(); clearBolts(); resetAttackers();
   KB.reset(); SP.reset(); setBossUI(null);
@@ -2955,7 +4159,7 @@ function resetWorld() {
   Object.assign(P, { x: 0.8, z: -9.5, y: 0, vx: 0, vz: 0, vy: 0, yaw: 0, pitch: 0.12, hp: 100, st: 100, lastHurt: -99, grounded: true, dead: 0 });
   Object.assign(W, { mag: 3, res: 15, reload: 0, cd: 0, ads: 0, spCd: 0, armed: false, kick: 0, pull: 1 });
   for (const s of supplies) s.cd = 0;
-  resetStats(); lastUI = {}; ui.announce.style.opacity = 0; announceTimer = 0;
+  resetStats(); AN.reset(); lastUI = {}; ui.announce.style.opacity = 0; announceTimer = 0;
 }
 function setStageEnv(key, propKey) {
   copyEnv(LIVE, ENVS[key]); bakeEnv(); Sfx.setRain(LIVE.rain);
@@ -2969,7 +4173,7 @@ function startStage(i, opts = {}) {
   const st = STAGES[i];
   setStageEnv(st.env, st.props);
   st.init(G.S);
-  $('questTitle').textContent = `STAGE ${i + 1} ─ ${st.name}`;
+  $('questTitle').textContent = st.analysis ? `ANALYSIS ─ ${st.name}` : `STAGE ${i + 1} ─ ${st.name}`;
   $('mapLabel').textContent = st.name;
   G.fight = 0;
   if (opts.skipIntro) {
@@ -3017,6 +4221,7 @@ function die() {
   announce('船は沈んだ…', 'YOU HAVE FALLEN', 3);
   realAfter(2.6, () => {
     const i = G.stage;
+    if (STAGES[i].analysis) return showReport(false);
     endScreen('敗北', `STAGE ${i + 1} ─ ${STAGES[i].name}`, '─', true, [['もう一度挑む', () => startStage(i, { skipIntro: true })], ['タイトルへ', toTitle, true]]);
   });
 }
@@ -3054,6 +4259,7 @@ function toTitle() {
 function renderStageList() {
   const box = $('stageList'); box.innerHTML = '';
   STAGES.forEach((s, i) => {
+    if (s.analysis) return;
     const b = document.createElement('button'); b.className = 'stage'; b.disabled = i > PROGRESS;
     b.innerHTML = `<b>STAGE ${i + 1}</b><span>${i > PROGRESS ? '🔒 ' : ''}${s.name}</span><small>${s.desc}</small>`;
     b.onclick = () => { startStage(i); };
@@ -3063,6 +4269,7 @@ function renderStageList() {
 function pause() { if (G.state !== 'play') return; G.state = 'paused'; fireHeld = adsHeld = false; $('pause').classList.remove('hidden'); }
 function resume() { if (G.state !== 'paused') return; $('pause').classList.add('hidden'); G.state = 'play'; wantLock(); }
 $('startBtn').addEventListener('click', () => startStage(0));
+$('anBtn').addEventListener('click', () => openNamePanel());
 $('resumeBtn').addEventListener('click', () => resume());
 document.querySelectorAll('.aimBtn').forEach(b => b.addEventListener('click', () => setAimPref(aimPref === 'lock' ? 'cursor' : 'lock')));
 document.querySelectorAll('.fsBtn').forEach(b => b.addEventListener('click', toggleFullscreen));
@@ -3074,6 +4281,8 @@ $('qualityBtn').addEventListener('click', () => { try { localStorage.setItem('re
 if (window.self !== window.top) {
   $('popBtn').classList.remove('hidden');
   $('popBtn').addEventListener('click', () => {
+    // Streamlit 版：同じ出どころのゲームを別窓で開く（マウス固定が使え、分析データも元の画面経由で送れる）
+    if (BRIDGE.on && !BRIDGE.relay) { window.open(location.origin + location.pathname + '?popup=1', '_blank'); return; }
     const win = window.open('', '_blank');
     if (!win) { $('touchNote').textContent = 'ポップアップがブロックされました。https://carat0816-oss.github.io/reefmother-fps/ を直接開いても遊べます。'; return; }
     const url = 'http://localhost:8502/game.html';
@@ -3094,6 +4303,7 @@ window.__reef = {
   G, P, W, KB, SP, Cine, enemies, startStage, spawnDrowned, spawnJelly, scene, camera, THREE, ship,
   aim(target) { const d = ship.worldToLocal(target.clone()).sub(V(P.x, P.y + 1.65, P.z)); P.yaw = Math.atan2(-d.x, -d.z); P.pitch = Math.atan2(d.y, Math.hypot(d.x, d.z)); },
   hurtBoss(n) { const b = G.boss; if (!b) return; if (b.e) { b.e.damage(n, false, 'body'); if (b.e.hp <= 0 && !b.e.dead) b.e.die(false); } else damageBoss(n, camera.position.clone().add(V(0, 0, -20)), false); },
+  AN, anSummary, showReport, LAB, LV, ST, openLab, renderLab, fitLogit, makeSample,
   clearWave() { for (const e of enemies) if (!e.dead && !e.boss) e.damage(9999, false, 'body'); const S = G.S; if (S.toSpawn) S.toSpawn = 0; if (S.queue) S.queue.length = 0; },
 };
 
@@ -3116,7 +4326,7 @@ function frame() {
   if (inGame) {
     const active = G.state === 'play';
     if (G.state === 'play' || G.state === 'dead') { updatePlayer(dt); }
-    if (G.state === 'play') { updateCursorAim(raw); updateWeapon(dt); }
+    if (G.state === 'play') { updateCursorAim(raw); if (STAGES[G.stage].analysis) AN.tick(dt); updateWeapon(dt); }
     updateEnemies(dt, t, active);
     KB.update(dt, t, active); SP.update(dt, t, active);
     updateAttackers(dt, t);

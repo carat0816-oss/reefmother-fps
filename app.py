@@ -1,13 +1,16 @@
-"""リーフマザー討伐 ─ Streamlit で遊ぶための入れ物。
+"""リーフマザー討伐 ─ Streamlit で遊ぶための入れ物＋射撃分析データの集約。
 
-ゲーム本体は static/game.html（Three.js）。Streamlit はそれをページに埋め込んで表示するだけ。
+ゲーム本体は static/game.html（Three.js）。双方向のカスタムコンポーネントとして埋め込み、
+- ゲーム → Python：射撃分析モードで「データ提供に同意」した人の1回分のデータを受け取り、保存する（store.py）
+- Python → ゲーム：保存済みの全員分のデータを渡し、ゲーム内のデータラボで「みんなのデータ」として分析できるようにする
 起動:  streamlit run app.py
 """
-import socket
 from pathlib import Path
 
 import streamlit as st
 import streamlit.components.v1 as components
+
+from store import clean_run, get_store
 
 st.set_page_config(page_title="リーフマザー討伐", page_icon="🦑", layout="wide")
 
@@ -22,20 +25,19 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-ゲームHTML = (Path(__file__).parent / "static" / "game.html").read_text(encoding="utf-8")
+# static/ フォルダをそのままコンポーネントとして配信する（index.html → game.html）
+reef_game = components.declare_component("reef_game", path=str(Path(__file__).parent / "static"))
 
-# 「別ウィンドウで遊ぶ」の行き先。
-# 手元で start_server.bat から起動していればゲーム専用サーバー(8502)、
-# それ以外（Streamlit Cloud など）は GitHub Pages に置いた同じゲームを開く。
-PAGES_URL = "https://carat0816-oss.github.io/reefmother-fps/"
+MAX_SHARED = 600        # ゲームに渡す「みんなのデータ」の最大回数（新しい順）
+MAX_PER_SESSION = 40    # 1回の接続で受け付ける最大回数（いたずら対策）
+
+store = get_store()
 
 
-def ゲーム単体のURL() -> str:
-    try:
-        with socket.create_connection(("127.0.0.1", 8502), timeout=0.2):
-            return "http://localhost:8502/game.html"
-    except OSError:
-        return PAGES_URL
+@st.cache_data(ttl=60, show_spinner=False)
+def load_shared() -> list[dict]:
+    return store.load(MAX_SHARED)
+
 
 with st.sidebar:
     st.header("🦑 リーフマザー討伐")
@@ -48,23 +50,48 @@ with st.sidebar:
         - R：装填 / Q：爆裂矢 / E：補給箱
         - Esc：一時停止
 
-        **攻略のヒント**
-        - 光る **眼** は弱点（ダメージ約3倍）
-        - 甲板の **赤い円** が出たらすぐ離れる
-        - 叩きつけてきた触手を撃ち続けると **切断** できる
-        - 紫の **墨弾** は撃ち落とせる
-        """
-    )
-    st.markdown(
-        """
-        **視点操作の2方式**
-        - **カーソル照準**（この画面の標準）：照準がマウスに付いてくる。
-          カーソルを画面の端に寄せると、その方向へ振り向く
-        - **マウス固定**：普通のFPSと同じ操作。この埋め込み画面では使えないので、
-          下のボタンから別ウィンドウで開く
+        **視点操作**
+        - この画面では「カーソル照準」（照準がマウスに付いてくる。画面の端で振り向く）
+        - タイトルの「別ウィンドウで遊ぶ」から開くと、普通のFPSと同じ「マウス固定」で遊べます。
+          射撃分析モードのデータもそのまま送られます
         - F キーで全画面表示
+
+        **射撃分析モード**
+        - 30秒・ボスなし。終わると分析レポートが出ます
+        - 開始前に「データ提供に同意」すると、その回のデータが集められ、
+          データラボの「みんなのデータ」で全員分の分析に使われます
         """
     )
-    st.link_button("🖥 別ウィンドウで遊ぶ（マウス固定・推奨）", ゲーム単体のURL(), type="primary", width="stretch")
+    try:
+        n_shared = len(load_shared())
+    except Exception as e:  # 保存先に一時的につながらなくてもゲームは遊べるようにする
+        n_shared = None
+        st.warning(f"データの読み込みに失敗しました：{e}")
+    st.caption(f"保存先：{store.label}" + (f" ／ 集まった記録：{n_shared} 回" if n_shared is not None else ""))
+    if store.kind == "local":
+        st.caption("※ Secrets にスプレッドシートの設定がないため、手元のファイルに保存しています")
 
-components.html(ゲームHTML, height=高さ, scrolling=False)
+try:
+    shared = load_shared()
+except Exception:
+    shared = []
+
+value = reef_game(
+    height=高さ,
+    shared={"runs": shared, "store": store.kind},
+    key="reef",
+    default=None,
+)
+
+# ゲームから届いた1回分を保存する（同じ回を二重に保存しないよう、保存済みの id を覚えておく）
+saved = st.session_state.setdefault("saved_ids", set())
+if isinstance(value, dict) and value.get("type") == "run" and value.get("consent") is True:
+    run = clean_run(value.get("run"))
+    if run and run["id"] not in saved and len(saved) < MAX_PER_SESSION:
+        try:
+            store.append(run)
+            saved.add(run["id"])
+            load_shared.clear()
+            st.rerun()  # 保存したばかりの回も入った「みんなのデータ」をゲームに渡し直す
+        except Exception as e:
+            st.toast(f"データの保存に失敗しました：{e}", icon="⚠️")
