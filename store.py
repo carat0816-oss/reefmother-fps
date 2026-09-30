@@ -152,10 +152,21 @@ _NO_SECRETS = (KeyError, FileNotFoundError, getattr(st.errors, "StreamlitSecretN
 
 
 @st.cache_resource
+def _local_store():
+    return LocalStore(Path(__file__).parent / "data" / "runs.jsonl")
+
+
+@st.cache_resource
+def _sheet_store(url: str, info_json: str):
+    return SheetStore(json.loads(info_json), url)
+
+
 def get_store():
+    # Secrets は毎回読み直し、その内容ごとに保存先をキャッシュする。
+    # こうしておくと、起動後に Secrets を足したり変えたりしても再起動なしで切り替わる。
     try:
         info = dict(st.secrets["gcp_service_account"])
         url = st.secrets["sheet_url"]
     except _NO_SECRETS:
-        return LocalStore(Path(__file__).parent / "data" / "runs.jsonl")
-    return SheetStore(info, url)
+        return _local_store()
+    return _sheet_store(url, json.dumps(info, sort_keys=True))
