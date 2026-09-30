@@ -5,8 +5,10 @@
 
 ## 遊ぶ
 
-- **ブラウザで直接**：https://carat0816-oss.github.io/reefmother-fps/
-- **Streamlit 版**：`streamlit run app.py`（ゲームをページに埋め込んで表示します）
+**https://reefmother-fps-f5.streamlit.app**
+
+- 開いて止まっているときは、アプリが眠っています。表示されるボタン（Yes, get this app back up!）を押して1分ほど待つと起きます
+- 普通のFPSと同じ「マウス固定」で遊ぶなら、タイトルの「別ウィンドウで遊ぶ」から（元のタブは閉じない。分析データは元のタブ経由で送られる）
 
 ## ステージ
 
@@ -68,9 +70,7 @@
 ## 手元で動かす（Windows）
 
 1. `python -m pip install -r requirements.txt`
-2. `start_server.bat` を実行
-   - http://localhost:8501 … Streamlit 版
-   - http://localhost:8502/game.html … ゲーム単体（マウス固定が使える）
+2. `start_server.bat` を実行（http://localhost:8501 がブラウザで開く）
 3. 止めるときは `stop_server.bat`
 
 ## みんなのデータを集める（Streamlit Community Cloud ＋ Googleスプレッドシート）
@@ -78,7 +78,7 @@
 Streamlit 版では、射撃分析モードの開始前に「データ提供に同意」した人の記録が、1回ごとにスプレッドシートへ1行ずつたまります。
 たまった全員分はゲーム内のデータラボの「みんなのデータ」で、誰でも分析できます。
 スプレッドシートの設定がないときは、手元の `data/runs.jsonl` に保存します（動作確認用。Community Cloud ではアプリの再起動で消えます）。
-GitHub Pages 版・ゲーム単体（8502）では集めず、記録はそのブラウザにだけ残ります。
+`static/game.html` をブラウザで直接開いた場合は集めず、記録はそのブラウザにだけ残ります。
 
 **準備（最初の1回）**
 1. [Google Cloud Console](https://console.cloud.google.com/) でプロジェクトを作り、「Google Sheets API」と「Google Drive API」を有効にする
@@ -112,4 +112,4 @@ GitHub Pages 版・ゲーム単体（8502）では集めず、記録はそのブ
 - `app.py` … Streamlit 版の入れ物（ゲームを双方向コンポーネントとして埋め込み、データを受け取って保存・配布）
 - `store.py` … データの保存先（Googleスプレッドシート／ローカルファイル）
 - `.streamlit/secrets.toml.example` … Secrets の見本
-- `index.html` … GitHub Pages 用（ゲームへ転送）
+- `start_server.bat` / `stop_server.bat` … 手元での起動・停止（Windows）

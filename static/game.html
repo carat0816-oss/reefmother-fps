@@ -2446,7 +2446,9 @@ let fireHeld = false, fireBuf = 0, adsHeld = false;
 //   'cursor' … カーソル照準。照準がカーソルに付いてきて、画面の端に寄せるとその方向へ振り向く
 const IN_FRAME = window.self !== window.top;
 let aimPref = IN_FRAME ? 'cursor' : 'lock';
-try { aimPref = localStorage.getItem('reef-aim') || aimPref; } catch (e) {}
+// 埋め込み画面と別ウィンドウで別々に覚える（別ウィンドウは最初マウス固定にしたいので）
+const AIM_KEY = IN_FRAME ? 'reef-aim-frame' : 'reef-aim-top';
+try { aimPref = localStorage.getItem(AIM_KEY) || aimPref; } catch (e) {}
 let freeLook = false;   // マウス固定が使えない環境だと分かったら true
 let lastUnlock = 0;
 const cursor = { x: innerWidth / 2, y: innerHeight / 2, inside: false };
@@ -2455,7 +2457,7 @@ const cursorMode = () => !locked() && (aimPref === 'cursor' || freeLook);
 function wantLock() { if (aimPref === 'lock' && !freeLook && !locked()) lock(); }
 function setAimPref(v) {
   aimPref = v;
-  try { localStorage.setItem('reef-aim', v); } catch (e) {}
+  try { localStorage.setItem(AIM_KEY, v); } catch (e) {}
   if (v === 'cursor' && locked()) document.exitPointerLock();
   document.querySelectorAll('.aimBtn').forEach(b => { b.textContent = '視点操作：' + (v === 'lock' ? 'マウス固定' : 'カーソル照準'); });
 }
@@ -4292,13 +4294,10 @@ if (window.self !== window.top) {
   $('popBtn').classList.remove('hidden');
   $('popBtn').addEventListener('click', () => {
     // Streamlit 版：同じ出どころのゲームを別窓で開く（マウス固定が使え、分析データも元の画面経由で送れる）
-    if (BRIDGE.on && !BRIDGE.relay) { window.open(location.origin + location.pathname + '?popup=1', '_blank'); return; }
-    const win = window.open('', '_blank');
-    if (!win) { $('touchNote').textContent = 'ポップアップがブロックされました。https://carat0816-oss.github.io/reefmother-fps/ を直接開いても遊べます。'; return; }
-    const url = 'http://localhost:8502/game.html';
-    fetch(url, { mode: 'no-cors', cache: 'no-store' })
-      .then(() => { win.location.href = url; })
-      .catch(() => { win.location.href = 'https://carat0816-oss.github.io/reefmother-fps/'; });
+    // それ以外の埋め込み先でも、同じページを別窓で開くだけにする
+    const url = BRIDGE.on && !BRIDGE.relay ? location.origin + location.pathname + '?popup=1' : location.href;
+    const win = window.open(url, '_blank');
+    if (!win) $('touchNote').textContent = '別ウィンドウがブラウザにブロックされました。アドレス欄の右端に出るマークからポップアップを許可するか、この画面のまま（カーソル照準・方向キー・F で全画面）遊んでください。';
   });
 }
 if (matchMedia('(pointer: coarse)').matches) $('touchNote').textContent = 'このゲームはマウスとキーボードが必要です（PCで開いてください）。';
